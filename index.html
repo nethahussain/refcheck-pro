@@ -657,20 +657,76 @@ window.c1=c1;
 function updateDlBtn(){var btn=document.getElementById("dlBtn");if(Object.keys(R).length>0)btn.style.display="inline-flex";}
 async function downloadDocx(){
   var docxLib=window.docx;if(!docxLib){showToast("docx library not loaded — try refreshing the page");return;}
+
+  // Build a map of original sentence text -> edited text for replacement
+  var replacements={};
+  for(var si=0;si<S.length;si++){
+    var editKey=String(si);
+    if(BODY_EDITS[editKey]){
+      // We need to find the original full text (with citation markers) and the display text
+      // The fullText has citation markers, the original display text was derived from it
+      // We'll search for the display text (before edit) in the body and replace
+      // Store: original display text before any edit -> new edited text
+      // S[si].text is already the edited version if saveSentence was called
+      // But we need the ORIGINAL text to find it. Use fullText as search basis.
+      // Actually the best approach: rebuild body text with edits applied
+    }
+  }
+
+  // Rebuild body: join original body lines into one string, then apply sentence edits
+  var bodyStr=ORIG_BODY_LINES.join("\n");
+
+  // For each edited sentence, find its original fullText (which contains citation markers)
+  // in the body and rebuild with the edited text + original citation markers
+  for(var idx=0;idx<S.length;idx++){
+    var editKey2=String(idx);
+    if(BODY_EDITS[editKey2]&&S[idx].fullText){
+      // The fullText was extracted from the body — it's the sentence WITH citation markers
+      var origFull=S[idx].fullText;
+      // Strip citation markers from original to get original display text
+      var origDisplay=origFull.replace(/\s*\[[^\]]*\]/g,"")
+        .replace(/\s*\([\d,\s\-–]+\)/g,"")
+        .replace(/\s*\([A-Z][a-zäöåéè]+(?:\s+(?:et\s+al\.?|&\s+[A-Z][a-zäöåéè]+))?[\s,]+(?:19|20)\d{2}[a-z]?\)/g,"")
+        .replace(/\s*\((?:[^)]*?;\s*)*[A-Z][a-zäöåéè]+[^)]*(?:19|20)\d{2}[a-z]?\)/g,"")
+        .trim();
+      // Extract just the citation markers from the original
+      var markers=[];
+      var markerMatch;
+      var markerRe=/(\s*\[[^\]]*\]|\s*\([\d,\s\-–]+\)|\s*\([A-Z][a-zäöåéè]+(?:\s+(?:et\s+al\.?|&\s+[A-Z][a-zäöåéè]+))?[\s,]+(?:19|20)\d{2}[a-z]?\))/g;
+      while((markerMatch=markerRe.exec(origFull))!==null){markers.push(markerMatch[1]);}
+      // Build new sentence: edited text + original citation markers
+      var newFull=BODY_EDITS[editKey2]+markers.join("");
+      // Replace in body string — find the original fullText and swap
+      // Need to be careful with special regex chars
+      var escapedOrig=origFull.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+      bodyStr=bodyStr.replace(new RegExp(escapedOrig.replace(/\s+/g,'\\s+')),newFull);
+    }
+  }
+
+  // Split back into lines for paragraph creation
+  var finalBodyLines=bodyStr.split("\n");
   var outputParagraphs=[];
-  ORIG_BODY_LINES.forEach(function(line){
+  finalBodyLines.forEach(function(line){
     if(!line.trim()){outputParagraphs.push(new docxLib.Paragraph({children:[]}));}
     else{outputParagraphs.push(new docxLib.Paragraph({children:[new docxLib.TextRun({text:line})],spacing:{after:120}}));}
   });
+
+  // Reference heading
   if(REF_SECTION_INFO&&REF_SECTION_INFO.heading>-1){var headingLine=ORIG_TEXT.split("\n")[REF_SECTION_INFO.heading];outputParagraphs.push(new docxLib.Paragraph({children:[new docxLib.TextRun({text:headingLine||"References",bold:true,size:28})],spacing:{before:400,after:200},heading:docxLib.HeadingLevel.HEADING_1}));}
   else{outputParagraphs.push(new docxLib.Paragraph({children:[new docxLib.TextRun({text:"References",bold:true,size:28})],spacing:{before:400,after:200},heading:docxLib.HeadingLevel.HEADING_1}));}
+
+  // References with fixes applied
   var isNumbered=detectedFormat.indexOf("Numbered")>-1;
   Object.keys(R).sort(function(a,b){return parseInt(a)-parseInt(b);}).forEach(function(num){
     var refText=R[num],prefix=isNumbered?num+". ":"",wasFix=FIXES[num]&&FIXES[num].applied;
     outputParagraphs.push(new docxLib.Paragraph({children:[new docxLib.TextRun({text:prefix+refText,size:22,color:wasFix?"1D4ED8":undefined}),wasFix?new docxLib.TextRun({text:" [CORRECTED]",size:18,color:"1D4ED8",italics:true}):new docxLib.TextRun("")],spacing:{after:100}}));
   });
+
   var doc=new docxLib.Document({sections:[{properties:{},children:outputParagraphs}]});
-  var blob=await docxLib.Packer.toBlob(doc);saveAs(blob,"corrected_manuscript.docx");showToast("Downloaded corrected_manuscript.docx");
+  var blob=await docxLib.Packer.toBlob(doc);saveAs(blob,"corrected_manuscript.docx");
+  var editCount=Object.keys(BODY_EDITS).filter(function(k){return !k.startsWith("editing_");}).length;
+  var fixCount=Object.keys(FIXES).filter(function(k){return FIXES[k].applied;}).length;
+  showToast("Downloaded with "+editCount+" text edit(s) and "+fixCount+" reference fix(es)");
 }
 window.downloadDocx=downloadDocx;
 
