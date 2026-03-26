@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.460.0/font/lucide.min.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-:root{--fg:#1a1f16;--fg2:#4a5240;--fg3:#7d8872;--bg:#f7f6f0;--bg2:#efeee6;--bg3:#e6e5db;--card:#fdfcf8;--green:#2d6a30;--green-l:#d4edcf;--green-ll:#eef7ec;--amber:#92600a;--amber-l:#fef3c7;--amber-ll:#fffbeb;--red:#9f1239;--red-l:#fecdd3;--red-ll:#fff1f2;--blue:#1d4ed8;--blue-l:#dbeafe;--blue-ll:#eff6ff;--violet:#5b21b6;--violet-l:#ede9fe;--border:#d4d3c9;--border2:#e8e7df;--radius:8px}
+:root{--fg:#1a1f16;--fg2:#4a5240;--fg3:#7d8872;--bg:#f7f6f0;--bg2:#efeee6;--bg3:#e6e5db;--card:#fdfcf8;--green:#2d6a30;--green-l:#d4edcf;--green-ll:#eef7ec;--amber:#92600a;--amber-l:#fef3c7;--amber-ll:#fffbeb;--red:#9f1239;--red-l:#fecdd3;--red-ll:#fff1f2;--blue:#1d4ed8;--blue-l:#dbeafe;--blue-ll:#eff6ff;--violet:#5b21b6;--violet-l:#ede9fe;--border:#d4d3c9;--border2:#e8e7df;--radius:8px;--teal:#0d9488;--teal-l:#ccfbf1;--teal-ll:#f0fdfa}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'DM Sans',sans-serif;color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased}
 .hdr{padding:32px 24px 24px;text-align:center;border-bottom:1px solid var(--border2)}
@@ -18,7 +18,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--fg);background:var(--bg);-webk
 .hdr h1 em{color:var(--green);font-style:normal}
 .hdr p{font-size:13px;color:var(--fg3);margin-top:4px}
 .app{max-width:880px;margin:0 auto;padding:16px 20px 60px}
-.status-row{display:flex;gap:16px;justify-content:center;padding:10px 0;font-size:11px;color:var(--fg3);font-weight:500}
+.status-row{display:flex;gap:16px;justify-content:center;padding:10px 0;font-size:11px;color:var(--fg3);font-weight:500;flex-wrap:wrap}
 .status-row span{display:flex;align-items:center;gap:4px}
 .sdot{width:7px;height:7px;border-radius:50%;background:var(--green)}
 .upload{border:1.5px dashed var(--border);border-radius:12px;padding:24px;text-align:center;background:var(--card);margin-bottom:14px}
@@ -32,38 +32,27 @@ body{font-family:'DM Sans',sans-serif;color:var(--fg);background:var(--bg);-webk
 .bbtn{display:inline-flex;align-items:center;gap:5px;padding:7px 16px;border:none;border-radius:var(--radius);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
 .bgo{background:var(--green);color:#fff}.bgo:disabled{background:var(--bg3);color:var(--fg3);cursor:default}
 .bst{background:var(--red);color:#fff}
-.bdl{background:var(--blue);color:#fff}
-.bdl:hover{background:#1e40af}
+.bdl{background:var(--blue);color:#fff}.bdl:hover{background:#1e40af}
 .bstats{font-size:11px;color:var(--fg3)}
 .pbar{flex:1;min-width:60px;height:3px;background:var(--bg3);border-radius:2px;overflow:hidden}
 .pfill{height:100%;background:var(--green);border-radius:2px;transition:width .3s}
 .tabs{display:flex;margin-bottom:14px;border-bottom:1px solid var(--border2)}
 .tab{flex:1;padding:10px 8px;background:none;border:none;font-family:inherit;font-size:12px;font-weight:500;color:var(--fg3);cursor:pointer;border-bottom:2px solid transparent;text-align:center}
 .tab.on{color:var(--green);border-bottom-color:var(--green);font-weight:700}
-
-/* Card styles */
 .cd{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:14px 16px;margin-bottom:8px;border-left:3px solid var(--border)}
 .cd.ok{border-left-color:var(--green)}.cd.wn{border-left-color:var(--amber)}.cd.er{border-left-color:var(--red)}.cd.fx{border-left-color:var(--blue)}
 .cd-b{font-size:13px;line-height:1.6}
-.cd-body-edit{font-size:13px;line-height:1.6;width:100%;min-height:60px;border:1px solid var(--border);border-radius:6px;padding:8px 10px;font-family:inherit;resize:vertical;background:var(--card)}
-.cd-body-edit:focus{outline:none;border-color:var(--green)}
 .chips{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap;align-items:center}
 .ch{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 8px;border-radius:4px;font-weight:500;background:var(--bg2);color:var(--fg2);border:1px solid var(--border2);max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ch.ok{background:var(--green-ll);color:var(--green);border-color:var(--green-l)}.ch.wn{background:var(--amber-ll);color:var(--amber);border-color:var(--amber-l)}.ch.er{background:var(--red-ll);color:var(--red);border-color:var(--red-l)}.ch.fx{background:var(--blue-ll);color:var(--blue);border-color:var(--blue-l)}
-
-/* Action buttons row */
 .act-row{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;align-items:center}
 .act-btn{font-size:10px;padding:4px 12px;border-radius:5px;cursor:pointer;font-family:inherit;font-weight:600;border:1px solid var(--border);background:var(--card);color:var(--fg2);display:inline-flex;align-items:center;gap:4px;transition:all .15s}
 .act-btn:hover{background:var(--green-ll);color:var(--green);border-color:var(--green-l)}
-.act-btn.fix{background:var(--blue-ll);color:var(--blue);border-color:var(--blue-l)}
-.act-btn.fix:hover{background:var(--blue-l);color:#1e3a8a}
-.act-btn.abs{background:var(--violet-l);color:var(--violet);border-color:#c4b5fd}
-.act-btn.abs:hover{background:#ddd6fe}
-.act-btn.edit{background:var(--amber-ll);color:var(--amber);border-color:var(--amber-l)}
-.act-btn.edit:hover{background:var(--amber-l)}
+.act-btn.fix{background:var(--blue-ll);color:var(--blue);border-color:var(--blue-l)}.act-btn.fix:hover{background:var(--blue-l);color:#1e3a8a}
+.act-btn.abs{background:var(--violet-l);color:var(--violet);border-color:#c4b5fd}.act-btn.abs:hover{background:#ddd6fe}
+.act-btn.edit{background:var(--amber-ll);color:var(--amber);border-color:var(--amber-l)}.act-btn.edit:hover{background:var(--amber-l)}
 .act-btn.done{background:var(--green-ll);color:var(--green);border-color:var(--green-l)}
-
-/* Abstract panel */
+.act-btn.claim{background:var(--teal-ll);color:var(--teal);border-color:var(--teal-l)}.act-btn.claim:hover{background:var(--teal-l)}
 .abw{margin-top:10px;padding-top:10px;border-top:1px solid var(--border2)}
 .abc{background:var(--bg);border:1px solid var(--border2);border-radius:6px;padding:12px 14px;margin-bottom:8px}
 .abn{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--violet);margin-bottom:4px}
@@ -80,8 +69,6 @@ body{font-family:'DM Sans',sans-serif;color:var(--fg);background:var(--bg);-webk
 .aload{font-size:11px;color:var(--fg3);padding:12px 0;display:flex;align-items:center;gap:6px}
 .sp{width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--green);border-radius:50%;animation:spin .6s linear infinite;flex-shrink:0}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* Fix panel */
 .fix-panel{background:var(--blue-ll);border:1px solid var(--blue-l);border-radius:6px;padding:12px;margin-top:8px}
 .fix-panel h4{font-size:11px;color:var(--blue);margin-bottom:6px;font-weight:700}
 .fix-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:6px}
@@ -89,21 +76,16 @@ body{font-family:'DM Sans',sans-serif;color:var(--fg);background:var(--bg);-webk
 .fix-old{font-size:11px;color:var(--red);text-decoration:line-through;flex:1;line-height:1.4}
 .fix-new{font-size:11px;color:var(--green);font-weight:600;flex:1;line-height:1.4}
 .fix-actions{display:flex;gap:6px;margin-top:8px}
-.fix-apply{font-size:11px;padding:5px 16px;border-radius:5px;cursor:pointer;font-family:inherit;font-weight:700;border:none;background:var(--blue);color:#fff;transition:all .15s}
-.fix-apply:hover{background:#1e3a8a}
+.fix-apply{font-size:11px;padding:5px 16px;border-radius:5px;cursor:pointer;font-family:inherit;font-weight:700;border:none;background:var(--blue);color:#fff;transition:all .15s}.fix-apply:hover{background:#1e3a8a}
 .fix-dismiss{font-size:11px;padding:5px 16px;border-radius:5px;cursor:pointer;font-family:inherit;font-weight:600;border:1px solid var(--border);background:var(--card);color:var(--fg3)}
-
-/* Reference cards */
 .rc{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:12px 14px;margin-bottom:8px;border-left:3px solid var(--border)}
 .rc.ok{border-left-color:var(--green)}.rc.wn{border-left-color:var(--amber)}.rc.er{border-left-color:var(--red)}.rc.fx{border-left-color:var(--blue)}
 .rct{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
 .rnm{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px;color:var(--violet);flex-shrink:0}
 .rtx{font-size:12px;line-height:1.5;flex:1}
-.rmg{font-size:11px;margin-top:4px;padding-left:4px}
-.rmg.ok{color:var(--green)}.rmg.wn{color:var(--amber)}.rmg.er{color:var(--red)}
+.rmg{font-size:11px;margin-top:4px;padding-left:4px}.rmg.ok{color:var(--green)}.rmg.wn{color:var(--amber)}.rmg.er{color:var(--red)}
 .ris{margin:4px 0 0;padding-left:20px;list-style-type:"– "}.ris li{font-size:10px;color:var(--fg2)}
-.rfd{font-size:10px;margin-top:6px;padding:6px 8px;background:var(--green-ll);border-radius:4px;border:1px solid var(--green-l);line-height:1.4;color:var(--fg2)}
-.rfd strong{color:var(--fg)}
+.rfd{font-size:10px;margin-top:6px;padding:6px 8px;background:var(--green-ll);border-radius:4px;border:1px solid var(--green-l);line-height:1.4;color:var(--fg2)}.rfd strong{color:var(--fg)}
 .badge{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:6px;font-size:9px;font-weight:700;white-space:nowrap}
 .bdot{width:5px;height:5px;border-radius:50%}
 .bp{background:var(--bg2);color:var(--fg3)}.bp .bdot{background:var(--fg3)}
@@ -113,8 +95,6 @@ body{font-family:'DM Sans',sans-serif;color:var(--fg);background:var(--bg);-webk
 .be{background:var(--red-ll);color:var(--red)}.be .bdot{background:var(--red)}
 .bf{background:var(--blue-ll);color:var(--blue)}.bf .bdot{background:var(--blue)}
 @keyframes pu{0%,100%{opacity:1}50%{opacity:.3}}
-
-/* Flagged cards */
 .fc{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:12px 14px;margin-bottom:8px}
 .fc.er{background:var(--red-ll);border-color:var(--red-l)}.fc.wn{background:var(--amber-ll);border-color:var(--amber-l)}
 .ca{margin-top:6px;padding-top:6px;border-top:1px solid var(--border2)}
@@ -123,25 +103,35 @@ body{font-family:'DM Sans',sans-serif;color:var(--fg);background:var(--bg);-webk
 .mt{text-align:center;padding:48px 24px;color:var(--fg3)}
 .mt p{font-family:'Newsreader',serif;font-size:15px;color:var(--fg2)}
 .mt .su{font-family:'DM Sans',sans-serif;font-size:11px;color:var(--fg3);margin-top:6px}
-
-/* Fix summary */
 .fix-summary{background:var(--blue-ll);border:1px solid var(--blue-l);border-radius:8px;padding:12px 16px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .fix-summary .count{font-size:13px;font-weight:700;color:var(--blue)}
 .fix-summary .detail{font-size:11px;color:var(--fg2)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a1f16;color:#fff;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:600;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}.toast.show{opacity:1}
+.text-edit-area{width:100%;min-height:50px;border:1px solid var(--green);border-radius:6px;padding:8px 10px;font-size:13px;line-height:1.6;font-family:inherit;resize:vertical;background:#fff}.text-edit-area:focus{outline:none;box-shadow:0 0 0 2px var(--green-l)}
 
-/* Toast */
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a1f16;color:#fff;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:600;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
-.toast.show{opacity:1}
-
-/* Text edit mode */
-.text-edit-area{width:100%;min-height:50px;border:1px solid var(--green);border-radius:6px;padding:8px 10px;font-size:13px;line-height:1.6;font-family:inherit;resize:vertical;background:#fff}
-.text-edit-area:focus{outline:none;box-shadow:0 0 0 2px var(--green-l)}
+/* ═══ CLAIM SUPPORT STYLES ═══ */
+.claim-box{margin-top:10px;padding:10px 12px;border-radius:6px;border:1px solid var(--border2);font-size:11px;line-height:1.5}
+.claim-box.supports{background:var(--green-ll);border-color:var(--green-l)}
+.claim-box.partial{background:var(--amber-ll);border-color:var(--amber-l)}
+.claim-box.weak{background:var(--red-ll);border-color:var(--red-l)}
+.claim-box.loading{background:var(--bg2)}
+.claim-verdict{font-weight:700;font-size:12px;margin-bottom:4px;display:flex;align-items:center;gap:5px}
+.claim-verdict.supports{color:var(--green)}.claim-verdict.partial{color:var(--amber)}.claim-verdict.weak{color:var(--red)}
+.claim-detail{color:var(--fg2);font-size:10px;line-height:1.5}
+.claim-concepts{margin-top:6px;display:flex;flex-wrap:wrap;gap:3px}
+.concept-tag{font-size:9px;padding:1px 6px;border-radius:3px;font-weight:600;font-family:'JetBrains Mono',monospace}
+.concept-tag.found{background:var(--green-ll);color:var(--green);border:1px solid var(--green-l)}
+.concept-tag.missing{background:var(--red-ll);color:var(--red);border:1px solid var(--red-l)}
+.concept-tag.title{background:var(--blue-ll);color:var(--blue);border:1px solid var(--blue-l)}
+.claim-score-bar{height:4px;background:var(--bg3);border-radius:2px;margin-top:6px;overflow:hidden}
+.claim-score-fill{height:100%;border-radius:2px;transition:width .3s}
+.claim-score-fill.high{background:var(--green)}.claim-score-fill.mid{background:var(--amber)}.claim-score-fill.low{background:var(--red)}
 </style>
 </head>
 <body>
-<div class="hdr"><h1>Reference<em>Checker</em> Pro</h1><p>Verify references, fix errors with one click, read abstracts, download corrected draft</p></div>
+<div class="hdr"><h1>Reference<em>Checker</em> Pro</h1><p>Verify references · Check claim support · Fix errors · Download corrected draft</p></div>
 <div class="app">
-  <div class="status-row"><span><span class="sdot"></span>CrossRef</span><span><span class="sdot"></span>PubMed</span><span><span class="sdot"></span>OpenAlex</span><span style="opacity:.5">parallel, ~1s/ref</span></div>
+  <div class="status-row"><span><span class="sdot"></span>CrossRef</span><span><span class="sdot"></span>PubMed</span><span><span class="sdot"></span>OpenAlex</span><span><span class="sdot" style="background:var(--teal)"></span>Claim Checker</span><span style="opacity:.5">parallel, ~1s/ref</span></div>
   <div class="upload"><input type="file" accept=".docx,.txt" id="fIn"><label for="fIn" id="uL"><i class="lucide-upload" style="font-size:15px"></i> Upload manuscript</label><div class="meta" id="fI"></div><div class="sub">Vancouver [1], APA (Author, 2020), Harvard, numbered, unnumbered — all supported</div></div>
   <div id="fmtInfo" style="display:none" class="fmtd"></div>
   <div class="bar" id="bar" style="display:none">
@@ -157,7 +147,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--fg);background:var(--bg);-webk
     <button class="tab" data-t="f" id="tF">Flagged</button>
   </div>
   <div id="fixSummary" style="display:none"></div>
-  <div id="ct"><div class="mt"><p>Upload a manuscript to begin</p><p class="su">Verify references, fix errors, read abstracts, download corrected draft</p></div></div>
+  <div id="ct"><div class="mt"><p>Upload a manuscript to begin</p><p class="su">Verify references, check claim support, fix errors, download corrected draft</p></div></div>
 </div>
 <div class="toast" id="toast"></div>
 <script>
@@ -165,89 +155,227 @@ body{font-family:'DM Sans',sans-serif;color:var(--fg);background:var(--bg);-webk
    STATE
    ═══════════════════════════════════════════ */
 var S=[],R={},V={},tab="s",EX={},AC={},busy=false,stopF=false,detectedFormat="";
-var FIXES={};       // {refNum: {oldText, newText, applied:bool}}
-var BODY_EDITS={};  // {sentIdx: newText}  — user edits to sentence text
-var ORIG_TEXT="";   // original full text for download reconstruction
-var ORIG_BODY_LINES=[];
-var ORIG_REF_LINES=[];
-var REF_SECTION_INFO=null;
+var FIXES={},BODY_EDITS={},ORIG_TEXT="",ORIG_BODY_LINES=[],ORIG_REF_LINES=[],REF_SECTION_INFO=null;
+var CLAIMS={};  // {"sentIdx_refNum": {verdict, score, matched, missing, titleMatch, detail}}
+
+/* ═══════════════════════════════════════════
+   STOPWORDS for claim analysis
+   ═══════════════════════════════════════════ */
+var STOP=new Set(["the","a","an","and","or","but","in","on","at","to","for","of","with","by","from","as","is","was","were","are","been","be","have","has","had","do","does","did","will","would","could","should","may","might","shall","can","this","that","these","those","it","its","they","them","their","we","our","us","he","she","his","her","i","my","me","you","your","which","who","whom","what","where","when","how","why","if","then","than","so","no","not","nor","also","more","most","very","much","many","some","any","each","every","all","both","few","several","such","other","another","into","about","between","through","during","before","after","above","below","up","down","out","over","under","again","further","once","here","there","only","just","even","still","already","too","however","although","though","while","since","because","until","unless","whether","per","et","al"]);
+
+/* ═══════════════════════════════════════════
+   CLAIM SUPPORT CHECKER
+   ═══════════════════════════════════════════ */
+function extractConcepts(text){
+  // Clean and tokenize
+  var clean=text.toLowerCase().replace(/[^a-z0-9\s\-]/g," ").replace(/\s+/g," ").trim();
+  var words=clean.split(" ").filter(function(w){return w.length>2&&!STOP.has(w);});
+
+  // Extract single important words
+  var singles=words.filter(function(w){return w.length>3;});
+
+  // Extract bigrams (consecutive meaningful word pairs)
+  var bigrams=[];
+  for(var i=0;i<words.length-1;i++){
+    if(words[i].length>3&&words[i+1].length>3&&!STOP.has(words[i])&&!STOP.has(words[i+1])){
+      bigrams.push(words[i]+" "+words[i+1]);
+    }
+  }
+
+  // Extract trigrams for key phrases
+  var trigrams=[];
+  for(var j=0;j<words.length-2;j++){
+    if(words[j].length>3&&words[j+2].length>3){
+      trigrams.push(words[j]+" "+words[j+1]+" "+words[j+2]);
+    }
+  }
+
+  return{singles:singles,bigrams:bigrams,trigrams:trigrams,all:words};
+}
+
+function checkClaimSupport(sentIdx,refNum){
+  var key=sentIdx+"_"+refNum;
+  if(CLAIMS[key]&&CLAIMS[key]!=="loading")return CLAIMS[key];
+
+  var sent=S[sentIdx];
+  if(!sent)return null;
+
+  var absData=AC[refNum];
+  var verifyData=V[refNum];
+  if(!absData||absData==="loading")return null;
+
+  var absText=(absData.abstract||"")+" "+(absData.title||"");
+  if(absText.trim().length<20||absData.abstract==="Abstract not available from any source."){
+    // Try using just the title + reference title for matching
+    var refTitle=(verifyData&&verifyData.fd)?verifyData.fd.title:"";
+    if(refTitle)absText=refTitle;
+    else return{verdict:"unavailable",score:0,detail:"Abstract not available — cannot assess claim support",matched:[],missing:[],titleMatch:false};
+  }
+
+  var sentConcepts=extractConcepts(sent.text);
+  var absConcepts=extractConcepts(absText);
+  var absLower=absText.toLowerCase();
+
+  // Check which sentence concepts appear in abstract
+  var matched=[],missing=[];
+  var checkedSet=new Set();
+
+  // Check bigrams first (more specific)
+  sentConcepts.bigrams.forEach(function(bg){
+    if(checkedSet.has(bg))return;
+    checkedSet.add(bg);
+    if(absLower.indexOf(bg)>-1)matched.push(bg);
+    else{
+      // Check if both words appear near each other (within 50 chars)
+      var ws=bg.split(" ");
+      var i1=absLower.indexOf(ws[0]),i2=absLower.indexOf(ws[1]);
+      if(i1>-1&&i2>-1&&Math.abs(i1-i2)<80)matched.push(bg);
+      else missing.push(bg);
+    }
+  });
+
+  // Check important singles (not already covered by bigrams)
+  var bgWords=new Set();
+  sentConcepts.bigrams.forEach(function(bg){bg.split(" ").forEach(function(w){bgWords.add(w);});});
+
+  sentConcepts.singles.forEach(function(w){
+    if(bgWords.has(w)||checkedSet.has(w))return;
+    checkedSet.add(w);
+    // Use stemming-like check: match if first 5+ chars match
+    var stem=w.substring(0,Math.min(w.length,5));
+    if(absLower.indexOf(w)>-1)matched.push(w);
+    else if(w.length>5&&absLower.indexOf(stem)>-1)matched.push(w+"~");  // fuzzy match
+    else missing.push(w);
+  });
+
+  // Title relevance check
+  var refTitle=(verifyData&&verifyData.fd)?verifyData.fd.title||"":"";
+  var titleConcepts=extractConcepts(refTitle);
+  var sentAllLower=sent.text.toLowerCase();
+  var titleOverlap=0;
+  titleConcepts.singles.forEach(function(w){
+    if(sentAllLower.indexOf(w)>-1)titleOverlap++;
+  });
+  var titleMatch=titleConcepts.singles.length>0&&(titleOverlap/titleConcepts.singles.length)>.2;
+
+  // Score calculation
+  var totalChecked=matched.length+missing.length;
+  var matchRatio=totalChecked>0?matched.length/totalChecked:0;
+
+  // Weighted score: bigram matches count more
+  var bigramMatched=matched.filter(function(m){return m.indexOf(" ")>-1;}).length;
+  var bigramTotal=sentConcepts.bigrams.length;
+  var bigramRatio=bigramTotal>0?bigramMatched/bigramTotal:matchRatio;
+
+  var score=matchRatio*0.5+bigramRatio*0.3+(titleMatch?0.2:0);
+
+  // Determine verdict
+  var verdict,detail;
+  if(score>=0.45){
+    verdict="supports";
+    detail="Strong concept overlap — abstract covers key claims in your sentence";
+  }else if(score>=0.25){
+    verdict="partial";
+    detail="Partial overlap — some key concepts found, but others are not addressed in the abstract";
+  }else{
+    verdict="weak";
+    detail="Low overlap — the abstract may not directly support this specific claim. Consider reviewing.";
+  }
+
+  // Special case: if abstract unavailable but title matches
+  if(absData.abstract==="Abstract not available from any source."){
+    if(titleMatch){
+      verdict="partial";
+      detail="Abstract unavailable — title appears related but cannot fully verify claim support";
+      score=0.3;
+    }else{
+      verdict="weak";
+      detail="Abstract unavailable and title shows low relevance to your claim";
+      score=0.1;
+    }
+  }
+
+  var result={verdict:verdict,score:Math.round(score*100),matched:matched.slice(0,12),missing:missing.slice(0,8),titleMatch:titleMatch,detail:detail};
+  CLAIMS[key]=result;
+  return result;
+}
+
+function renderClaimHTML(sentIdx,refNum){
+  var key=sentIdx+"_"+refNum;
+  var c=CLAIMS[key];
+  if(!c||c==="loading")return'<div class="claim-box loading"><div class="aload"><div class="sp"></div>Analyzing claim support...</div></div>';
+  if(c.verdict==="unavailable")return'<div class="claim-box partial"><div class="claim-verdict partial">— Cannot assess</div><div class="claim-detail">'+esc(c.detail)+'</div></div>';
+
+  var icon=c.verdict==="supports"?"✓":c.verdict==="partial"?"◐":"✗";
+  var label=c.verdict==="supports"?"Likely supports claim":c.verdict==="partial"?"Partial support":"Weak/unclear support";
+
+  var h='<div class="claim-box '+c.verdict+'">';
+  h+='<div class="claim-verdict '+c.verdict+'">'+icon+' '+label+' <span style="font-size:9px;font-weight:400;opacity:.7">('+c.score+'% concept overlap)</span></div>';
+  h+='<div class="claim-detail">'+esc(c.detail)+'</div>';
+  h+='<div class="claim-score-bar"><div class="claim-score-fill '+(c.score>=45?'high':c.score>=25?'mid':'low')+'" style="width:'+c.score+'%"></div></div>';
+
+  if(c.matched.length||c.missing.length){
+    h+='<div class="claim-concepts">';
+    if(c.titleMatch)h+='<span class="concept-tag title">title relevant</span>';
+    c.matched.forEach(function(m){h+='<span class="concept-tag found">'+esc(m)+'</span>';});
+    c.missing.forEach(function(m){h+='<span class="concept-tag missing">'+esc(m)+'</span>';});
+    h+='</div>';
+  }
+  h+='</div>';
+  return h;
+}
+
+function doClaimCheck(sentIdx,refNum){
+  var key=sentIdx+"_"+refNum;
+  // Need abstract first
+  if(!AC[refNum]||AC[refNum]==="loading"){
+    CLAIMS[key]="loading";
+    draw();
+    // Fetch abstract then check
+    fetchAbs(refNum).then(function(){
+      CLAIMS[key]=null; // reset so checkClaimSupport recalculates
+      checkClaimSupport(sentIdx,refNum);
+      draw();
+    });
+    return;
+  }
+  checkClaimSupport(sentIdx,refNum);
+  draw();
+}
+window.doClaimCheck=doClaimCheck;
+
+function doClaimCheckAll(sentIdx){
+  S[sentIdx].refNums.forEach(function(n){doClaimCheck(sentIdx,n);});
+}
+window.doClaimCheckAll=doClaimCheckAll;
 
 /* ═══════════════════════════════════════════
    UNIVERSAL PARSER
    ═══════════════════════════════════════════ */
 function findRefSection(lines){
-  var headings=["references","bibliography","works cited","literature","referenslista",
-    "källförteckning","literature cited","reference list","cited literature",
-    "bibliographie","literaturverzeichnis","referencias","riferimenti"];
-  for(var i=0;i<lines.length;i++){
-    var t=lines[i].trim().toLowerCase().replace(/[^a-zäöåéèü\s]/g,"").trim();
-    if(headings.indexOf(t)>-1)return{idx:i+1,heading:i};
-  }
-  for(var i2=Math.max(0,lines.length-80);i2<lines.length;i2++){
-    if(/^\s*\[?1[\].):\s]\s+[A-Z]/.test(lines[i2])){
-      var nextNum=false;
-      for(var j=i2+1;j<Math.min(i2+5,lines.length);j++){
-        if(/^\s*\[?[2-5][\].):\s]/.test(lines[j])){nextNum=true;break;}
-      }
-      if(nextNum)return{idx:i2,heading:-1};
-    }
-  }
-  for(var i3=Math.max(0,lines.length-80);i3<lines.length;i3++){
-    if(/^[A-Z][a-zäöåéè]+,?\s+[A-Z]\./.test(lines[i3].trim())&&/\((?:19|20)\d{2}[a-z]?\)/.test(lines[i3])){
-      var apaCt=0;
-      for(var j2=i3;j2<Math.min(i3+5,lines.length);j2++){
-        if(/^[A-Z][a-zäöåéè]+/.test(lines[j2].trim())&&/(?:19|20)\d{2}/.test(lines[j2]))apaCt++;
-      }
-      if(apaCt>=2)return{idx:i3,heading:-1};
-    }
-  }
-  for(var i4=Math.max(0,lines.length-60);i4<lines.length;i4++){
-    var doiCt=0;
-    for(var j3=i4;j3<Math.min(i4+8,lines.length);j3++){
-      if(/10\.\d{4,9}\//.test(lines[j3]))doiCt++;
-    }
-    if(doiCt>=3)return{idx:i4,heading:-1};
-  }
+  var headings=["references","bibliography","works cited","literature","referenslista","källförteckning","literature cited","reference list","cited literature","bibliographie","literaturverzeichnis","referencias","riferimenti"];
+  for(var i=0;i<lines.length;i++){var t=lines[i].trim().toLowerCase().replace(/[^a-zäöåéèü\s]/g,"").trim();if(headings.indexOf(t)>-1)return{idx:i+1,heading:i};}
+  for(var i2=Math.max(0,lines.length-80);i2<lines.length;i2++){if(/^\s*\[?1[\].):\s]\s+[A-Z]/.test(lines[i2])){var nextNum=false;for(var j=i2+1;j<Math.min(i2+5,lines.length);j++){if(/^\s*\[?[2-5][\].):\s]/.test(lines[j])){nextNum=true;break;}}if(nextNum)return{idx:i2,heading:-1};}}
+  for(var i3=Math.max(0,lines.length-80);i3<lines.length;i3++){if(/^[A-Z][a-zäöåéè]+,?\s+[A-Z]\./.test(lines[i3].trim())&&/\((?:19|20)\d{2}[a-z]?\)/.test(lines[i3])){var apaCt=0;for(var j2=i3;j2<Math.min(i3+5,lines.length);j2++){if(/^[A-Z][a-zäöåéè]+/.test(lines[j2].trim())&&/(?:19|20)\d{2}/.test(lines[j2]))apaCt++;}if(apaCt>=2)return{idx:i3,heading:-1};}}
+  for(var i4=Math.max(0,lines.length-60);i4<lines.length;i4++){var doiCt=0;for(var j3=i4;j3<Math.min(i4+8,lines.length);j3++){if(/10\.\d{4,9}\//.test(lines[j3]))doiCt++;}if(doiCt>=3)return{idx:i4,heading:-1};}
   return null;
 }
-
 function splitRefs(lines){
-  var refs={};
-  var joined=lines.join("\n");
-  // Match: [1] Text, 1. Text, 1) Text, (1) Text, 1.\tText, 1.\t Text
+  var refs={},joined=lines.join("\n");
   var hasNumbered=/^\s*[\[(]?\d+[\].):\s]\s*/m.test(joined)||/^\d+\.\t/.test(joined)||/^\d+\.\s+[A-Z]/.test(joined);
   var hasAPA=/^[A-Z][a-zäöåéè]+,\s+[A-Z]\.\s*[A-Z]?\.?\s*[\(,&]/m.test(joined);
-
   if(hasNumbered){
-    detectedFormat="Numbered (Vancouver-style)";
-    var cn=null,ct="";
-    for(var i=0;i<lines.length;i++){
-      var l=lines[i],m=l.match(/^\s*[\[(]?(\d+)[\].):]\s*\t?\s*(.*)/)||l.match(/^\s*(\d+)\.\t(.*)/)||l.match(/^\s*(\d+)\.\s{2,}(.*)/);
-      if(m&&parseInt(m[1])>0){
-        if(cn!==null&&ct.trim())refs[cn]=ct.trim();
-        cn=m[1];ct=m[2]||"";
-      }else if(cn!==null){
-        ct+=" "+l.trim();
-      }
-    }
+    detectedFormat="Numbered (Vancouver-style)";var cn=null,ct="";
+    for(var i=0;i<lines.length;i++){var l=lines[i],m=l.match(/^\s*[\[(]?(\d+)[\].):]\s*\t?\s*(.*)/)||l.match(/^\s*(\d+)\.\t(.*)/)||l.match(/^\s*(\d+)\.\s{2,}(.*)/);
+      if(m&&parseInt(m[1])>0){if(cn!==null&&ct.trim())refs[cn]=ct.trim();cn=m[1];ct=m[2]||"";}else if(cn!==null){ct+=" "+l.trim();}}
     if(cn!==null&&ct.trim())refs[cn]=ct.trim();
   }else{
-    detectedFormat=hasAPA?"APA / Author-date":"Author-date";
-    var blocks=[],cur="";
-    for(var i2=0;i2<lines.length;i2++){
-      var l2=lines[i2];
-      if(!l2.trim()){if(cur.trim())blocks.push(cur.trim());cur="";continue;}
-      var isNewRef=cur.trim()&&/^[A-Z][a-zäöåéè]+[\s,]/.test(l2.trim())&&(
-        /\((?:19|20)\d{2}/.test(l2)||/^[A-Z][a-zäöåéè]+\s+[A-Z]{1,3}[,.]/.test(l2.trim())||/^[A-Z][a-zäöåéè]+,\s+[A-Z]\./.test(l2.trim())
-      );
-      if(isNewRef){if(cur.trim())blocks.push(cur.trim());cur=l2;}
-      else{cur+=(cur?" ":"")+l2.trim();}
-    }
-    if(cur.trim())blocks.push(cur.trim());
-    var idx=1;
-    blocks.forEach(function(b){
-      if(/(?:19|20)\d{2}/.test(b)&&b.length>20){refs[String(idx)]=b;idx++;}
-    });
+    detectedFormat=hasAPA?"APA / Author-date":"Author-date";var blocks=[],cur="";
+    for(var i2=0;i2<lines.length;i2++){var l2=lines[i2];if(!l2.trim()){if(cur.trim())blocks.push(cur.trim());cur="";continue;}
+      var isNewRef=cur.trim()&&/^[A-Z][a-zäöåéè]+[\s,]/.test(l2.trim())&&(/\((?:19|20)\d{2}/.test(l2)||/^[A-Z][a-zäöåéè]+\s+[A-Z]{1,3}[,.]/.test(l2.trim())||/^[A-Z][a-zäöåéè]+,\s+[A-Z]\./.test(l2.trim()));
+      if(isNewRef){if(cur.trim())blocks.push(cur.trim());cur=l2;}else{cur+=(cur?" ":"")+l2.trim();}}
+    if(cur.trim())blocks.push(cur.trim());var idx=1;
+    blocks.forEach(function(b){if(/(?:19|20)\d{2}/.test(b)&&b.length>20){refs[String(idx)]=b;idx++;}});
   }
   return refs;
 }
@@ -257,54 +385,15 @@ function splitRefs(lines){
    ═══════════════════════════════════════════ */
 function xf(raw){
   var f={raw:raw,ti:"",au:"",yr:"",jo:"",doi:"",fa:""};
-  var dm=raw.match(/(?:https?:\/\/doi\.org\/|doi:\s*|DOI:\s*)?(10\.\d{4,9}\/[^\s;,\]"']+)/i);
-  if(dm)f.doi=dm[1].replace(/[.)]+$/,"");
-  var ym=raw.match(/\(?((?:19|20)\d{2})[a-z]?\)?/);
-  if(ym)f.yr=ym[1];
-
-  var isAPA=/^[A-Z][a-zäöåéè]+,\s+[A-Z]\.\s*[A-Z]?\.?/.test(raw);
-  var isVancouver=/^[A-Z][a-zäöåéè]+\s+[A-Z]{1,3}[,.]/.test(raw)&&!isAPA;
-  var isHarvard=/^[A-Z][a-zäöåéè]+,\s+[A-Z]\.[A-Z]?\.?\s*(?:,|and\s|&)/.test(raw)&&/\d{4}\./.test(raw);
-
-  if(isAPA){
-    var apaAuth=raw.match(/^(.+?)\s*\(\d{4}[a-z]?\)/);
-    if(apaAuth)f.au=apaAuth[1].replace(/[,&\s]+$/,"").trim();
-    var afterYear=raw.replace(/^.+?\(\d{4}[a-z]?\)\.\s*/,"");
-    var titleMatch=afterYear.match(/^(.+?)\.\s+(?:[A-Z]|$)/);
-    if(titleMatch)f.ti=titleMatch[1].trim();
-    else f.ti=afterYear.split(".")[0].trim();
-    var afterTitle=afterYear.substring(f.ti.length).replace(/^\.\s*/,"");
-    var jMatch=afterTitle.match(/^([^,;]+?)(?:\s*,\s*\d|\s*\d{1,4}\s*[,(]|\.\s|$)/);
-    if(jMatch)f.jo=jMatch[1].trim();
-  }else if(isVancouver){
-    var parts=raw.split(/\.\s+/);
-    f.au=parts[0];
-    if(parts.length>=3){
-      f.ti=parts[1];
-      var jPart=parts.slice(2).join(". ");
-      var jm2=jPart.match(/^([A-Z][^.;]+?)[\s.;]/);
-      if(jm2)f.jo=jm2[1].trim();
-    }else if(parts.length===2){
-      f.ti=parts[1].replace(/\s*(?:https?|doi|10\.).*$/i,"").trim();
-    }
-  }else if(isHarvard){
-    var harvAuth=raw.match(/^(.+?),?\s*(?:19|20)\d{2}\.\s*/);
-    if(harvAuth)f.au=harvAuth[1].trim();
-    var afterHarvYear=raw.replace(/^.+?(?:19|20)\d{2}[a-z]?\.\s*/,"");
-    var hTitle=afterHarvYear.match(/^(.+?)\.\s+/);
-    if(hTitle)f.ti=hTitle[1].trim();
-    else f.ti=afterHarvYear.split(".")[0].trim();
-  }else{
-    var cleaned=raw.replace(/([A-Z])\.\s+(?=[A-Z]\.)/g,"$1._");
-    var gParts=cleaned.split(/\.\s+/).map(function(p){return p.replace(/_/g," ");});
-    if(gParts.length>=3){f.au=gParts[0];f.ti=gParts[1];
-    }else if(gParts.length===2){f.au=gParts[0];f.ti=gParts[1].replace(/\s*(?:https?|doi|10\.).*$/i,"").trim();
-    }else{f.ti=raw.substring(0,150);}
-  }
+  var dm=raw.match(/(?:https?:\/\/doi\.org\/|doi:\s*|DOI:\s*)?(10\.\d{4,9}\/[^\s;,\]"']+)/i);if(dm)f.doi=dm[1].replace(/[.)]+$/,"");
+  var ym=raw.match(/\(?((?:19|20)\d{2})[a-z]?\)?/);if(ym)f.yr=ym[1];
+  var isAPA=/^[A-Z][a-zäöåéè]+,\s+[A-Z]\.\s*[A-Z]?\.?/.test(raw),isVancouver=/^[A-Z][a-zäöåéè]+\s+[A-Z]{1,3}[,.]/.test(raw)&&!isAPA,isHarvard=/^[A-Z][a-zäöåéè]+,\s+[A-Z]\.[A-Z]?\.?\s*(?:,|and\s|&)/.test(raw)&&/\d{4}\./.test(raw);
+  if(isAPA){var apaAuth=raw.match(/^(.+?)\s*\(\d{4}[a-z]?\)/);if(apaAuth)f.au=apaAuth[1].replace(/[,&\s]+$/,"").trim();var afterYear=raw.replace(/^.+?\(\d{4}[a-z]?\)\.\s*/,"");var titleMatch=afterYear.match(/^(.+?)\.\s+(?:[A-Z]|$)/);if(titleMatch)f.ti=titleMatch[1].trim();else f.ti=afterYear.split(".")[0].trim();var afterTitle=afterYear.substring(f.ti.length).replace(/^\.\s*/,"");var jMatch=afterTitle.match(/^([^,;]+?)(?:\s*,\s*\d|\s*\d{1,4}\s*[,(]|\.\s|$)/);if(jMatch)f.jo=jMatch[1].trim();}
+  else if(isVancouver){var parts=raw.split(/\.\s+/);f.au=parts[0];if(parts.length>=3){f.ti=parts[1];var jPart=parts.slice(2).join(". ");var jm2=jPart.match(/^([A-Z][^.;]+?)[\s.;]/);if(jm2)f.jo=jm2[1].trim();}else if(parts.length===2){f.ti=parts[1].replace(/\s*(?:https?|doi|10\.).*$/i,"").trim();}}
+  else if(isHarvard){var harvAuth=raw.match(/^(.+?),?\s*(?:19|20)\d{2}\.\s*/);if(harvAuth)f.au=harvAuth[1].trim();var afterHarvYear=raw.replace(/^.+?(?:19|20)\d{2}[a-z]?\.\s*/,"");var hTitle=afterHarvYear.match(/^(.+?)\.\s+/);if(hTitle)f.ti=hTitle[1].trim();else f.ti=afterHarvYear.split(".")[0].trim();}
+  else{var cleaned=raw.replace(/([A-Z])\.\s+(?=[A-Z]\.)/g,"$1._");var gParts=cleaned.split(/\.\s+/).map(function(p){return p.replace(/_/g," ");});if(gParts.length>=3){f.au=gParts[0];f.ti=gParts[1];}else if(gParts.length===2){f.au=gParts[0];f.ti=gParts[1].replace(/\s*(?:https?|doi|10\.).*$/i,"").trim();}else{f.ti=raw.substring(0,150);}}
   f.ti=(f.ti||"").replace(/\s*https?:\/\/.*$/,"").replace(/\s*doi:.*$/i,"").replace(/[.;,]+$/,"").trim();
-  f.fa=(f.au.split(/[,&;]/)[0]||"").trim().split(/\s+/);
-  f.fa=f.fa[0]||"";
-  f.fa=f.fa.replace(/[^a-zA-ZäöåéèüÄÖÅ]/g,"");
+  f.fa=(f.au.split(/[,&;]/)[0]||"").trim().split(/\s+/);f.fa=f.fa[0]||"";f.fa=f.fa.replace(/[^a-zA-ZäöåéèüÄÖÅ]/g,"");
   return f;
 }
 
@@ -314,58 +403,12 @@ function xf(raw){
 function findCitations(sentText,refMap,hasNum,hasAuth){
   var nums=[];
   if(hasNum){
-    // Match [1], [1,2], [1-3] square bracket style
-    var cm=Array.from(sentText.matchAll(/\[([^\]]+)\]/g));
-    cm.forEach(function(c){
-      c[1].split(",").forEach(function(part){
-        part=part.trim();
-        if(/^\d+$/.test(part)){nums.push(part);}
-        else if(/^\d+\s*[-–]\s*\d+$/.test(part)){
-          var rng=part.split(/[-–]/);var a=parseInt(rng[0]),b=parseInt(rng[1]);
-          if(!isNaN(a)&&!isNaN(b)&&b-a<50)for(var i=a;i<=b;i++)nums.push(String(i));
-        }
-      });
-    });
-    // Match (1), (1, 2), (3-5), (8, 17-19) parenthetical number style
-    // But NOT years like (2020) — only match if content is purely numbers/commas/hyphens
-    var pm=Array.from(sentText.matchAll(/\(([\d,\s\-–]+)\)/g));
-    pm.forEach(function(c){
-      var inner=c[1].trim();
-      // Skip if it looks like a year (single 4-digit number starting with 19 or 20)
-      if(/^(19|20)\d{2}$/.test(inner))return;
-      inner.split(",").forEach(function(part){
-        part=part.trim();
-        if(/^\d+$/.test(part)&&parseInt(part)<500){nums.push(part);}
-        else if(/^\d+\s*[-–]\s*\d+$/.test(part)){
-          var rng=part.split(/[-–]/);var a=parseInt(rng[0]),b=parseInt(rng[1]);
-          if(!isNaN(a)&&!isNaN(b)&&b-a<50&&a<500)for(var i=a;i<=b;i++)nums.push(String(i));
-        }
-      });
-    });
+    Array.from(sentText.matchAll(/\[([^\]]+)\]/g)).forEach(function(c){c[1].split(",").forEach(function(part){part=part.trim();if(/^\d+$/.test(part)){nums.push(part);}else if(/^\d+\s*[-–]\s*\d+$/.test(part)){var rng=part.split(/[-–]/);var a=parseInt(rng[0]),b=parseInt(rng[1]);if(!isNaN(a)&&!isNaN(b)&&b-a<50)for(var i=a;i<=b;i++)nums.push(String(i));}});});
+    Array.from(sentText.matchAll(/\(([\d,\s\-–]+)\)/g)).forEach(function(c){var inner=c[1].trim();if(/^(19|20)\d{2}$/.test(inner))return;inner.split(",").forEach(function(part){part=part.trim();if(/^\d+$/.test(part)&&parseInt(part)<500){nums.push(part);}else if(/^\d+\s*[-–]\s*\d+$/.test(part)){var rng=part.split(/[-–]/);var a=parseInt(rng[0]),b=parseInt(rng[1]);if(!isNaN(a)&&!isNaN(b)&&b-a<50&&a<500)for(var i=a;i<=b;i++)nums.push(String(i));}});});
   }
   if(hasAuth&&!nums.length){
-    [/\(([^)]*?(?:19|20)\d{2}[a-z]?[^)]*)\)/g].forEach(function(pat){
-      Array.from(sentText.matchAll(pat)).forEach(function(m){
-        m[1].split(";").forEach(function(cite){
-          cite=cite.trim();
-          var ym2=cite.match(/((?:19|20)\d{2})[a-z]?/);if(!ym2)return;
-          var year=ym2[1];
-          var authPart=cite.replace(/[,\s]*(?:19|20)\d{2}[a-z]?\s*/g,"").replace(/et\s+al\.?/gi,"").replace(/[&,]/g," ").trim();
-          var surnames=authPart.split(/\s+/).filter(function(w){return w.length>2&&/^[A-Z]/.test(w);});
-          Object.entries(refMap).forEach(function(e){
-            if(e[1].indexOf(year)<0)return;
-            var matched=surnames.some(function(sn){return e[1].toLowerCase().indexOf(sn.toLowerCase().substring(0,4))>-1;});
-            if(matched)nums.push(e[0]);
-          });
-        });
-      });
-    });
-    Array.from(sentText.matchAll(/([A-Z][a-zäöåéè]+)(?:\s+(?:et\s+al\.?|and\s+[A-Z][a-zäöåéè]+|&\s+[A-Z][a-zäöåéè]+))?\s+\(((?:19|20)\d{2})[a-z]?\)/g)).forEach(function(m){
-      var sn=m[1],yr2=m[2];
-      Object.entries(refMap).forEach(function(e){
-        if(e[1].indexOf(yr2)>-1&&e[1].toLowerCase().indexOf(sn.toLowerCase().substring(0,4))>-1)nums.push(e[0]);
-      });
-    });
+    [/\(([^)]*?(?:19|20)\d{2}[a-z]?[^)]*)\)/g].forEach(function(pat){Array.from(sentText.matchAll(pat)).forEach(function(m){m[1].split(";").forEach(function(cite){cite=cite.trim();var ym2=cite.match(/((?:19|20)\d{2})[a-z]?/);if(!ym2)return;var year=ym2[1];var authPart=cite.replace(/[,\s]*(?:19|20)\d{2}[a-z]?\s*/g,"").replace(/et\s+al\.?/gi,"").replace(/[&,]/g," ").trim();var surnames=authPart.split(/\s+/).filter(function(w){return w.length>2&&/^[A-Z]/.test(w);});Object.entries(refMap).forEach(function(e){if(e[1].indexOf(year)<0)return;var matched=surnames.some(function(sn){return e[1].toLowerCase().indexOf(sn.toLowerCase().substring(0,4))>-1;});if(matched)nums.push(e[0]);});});});});
+    Array.from(sentText.matchAll(/([A-Z][a-zäöåéè]+)(?:\s+(?:et\s+al\.?|and\s+[A-Z][a-zäöåéè]+|&\s+[A-Z][a-zäöåéè]+))?\s+\(((?:19|20)\d{2})[a-z]?\)/g)).forEach(function(m){var sn=m[1],yr2=m[2];Object.entries(refMap).forEach(function(e){if(e[1].indexOf(yr2)>-1&&e[1].toLowerCase().indexOf(sn.toLowerCase().substring(0,4))>-1)nums.push(e[0]);});});
   }
   var seen={};return nums.filter(function(n){if(seen[n])return false;seen[n]=1;return true;});
 }
@@ -374,50 +417,19 @@ function findCitations(sentText,refMap,hasNum,hasAuth){
    PARSE
    ═══════════════════════════════════════════ */
 function parse(text){
-  ORIG_TEXT=text;
-  var lines=text.split("\n");
-  var rs=findRefSection(lines);
-  REF_SECTION_INFO=rs;
-  if(rs){
-    ORIG_BODY_LINES=lines.slice(0,rs.heading>-1?rs.heading:rs.idx);
-    ORIG_REF_LINES=lines.slice(rs.idx);
-  }else{
-    ORIG_BODY_LINES=lines;ORIG_REF_LINES=[];
-  }
-  var refs=splitRefs(ORIG_REF_LINES);
-  var bodyText=ORIG_BODY_LINES.join(" ").replace(/\s+/g," ");
-
-  // Detect [1] square-bracket OR (1) parenthetical numbered citations
+  ORIG_TEXT=text;var lines=text.split("\n");var rs=findRefSection(lines);REF_SECTION_INFO=rs;
+  if(rs){ORIG_BODY_LINES=lines.slice(0,rs.heading>-1?rs.heading:rs.idx);ORIG_REF_LINES=lines.slice(rs.idx);}else{ORIG_BODY_LINES=lines;ORIG_REF_LINES=[];}
+  var refs=splitRefs(ORIG_REF_LINES);var bodyText=ORIG_BODY_LINES.join(" ").replace(/\s+/g," ");
   var hasNum=/\[\d+/.test(bodyText)||/\(\d+\)/.test(bodyText)||/\(\d+[\s,\-–]+\d+/.test(bodyText);
-  var hasAuth=/\([A-Z][a-zäöåéè]+[\s,]+(?:(?:et\s+al\.?\s*,?\s*)?(?:19|20)\d{2}|(?:&|and)\s+[A-Z])/.test(bodyText)||
-    /[A-Z][a-zäöåéè]+\s+\((?:19|20)\d{2}\)/.test(bodyText);
-  // If parenthetical numbers are detected alongside refs, prefer numbered over author-year
+  var hasAuth=/\([A-Z][a-zäöåéè]+[\s,]+(?:(?:et\s+al\.?\s*,?\s*)?(?:19|20)\d{2}|(?:&|and)\s+[A-Z])/.test(bodyText)||/[A-Z][a-zäöåéè]+\s+\((?:19|20)\d{2}\)/.test(bodyText);
   if(/\(\d+\)/.test(bodyText)&&Object.keys(refs).length>0)hasNum=true;
   if(!hasNum&&!hasAuth&&Object.keys(refs).length>0)hasNum=true;
-
-  var safeBody=bodyText
-    .replace(/\bet\s+al\./g,"et al\u2024").replace(/\be\.g\./g,"e\u2024g\u2024")
-    .replace(/\bi\.e\./g,"i\u2024e\u2024").replace(/\bvs\./g,"vs\u2024")
-    .replace(/\bDr\./g,"Dr\u2024").replace(/\bFig\./g,"Fig\u2024")
-    .replace(/\bRef\./g,"Ref\u2024").replace(/\bNo\./g,"No\u2024")
-    .replace(/\bVol\./g,"Vol\u2024").replace(/\bpp\./g,"pp\u2024");
-  // Split sentences — also handle splits after (n). patterns
+  var safeBody=bodyText.replace(/\bet\s+al\./g,"et al\u2024").replace(/\be\.g\./g,"e\u2024g\u2024").replace(/\bi\.e\./g,"i\u2024e\u2024").replace(/\bvs\./g,"vs\u2024").replace(/\bDr\./g,"Dr\u2024").replace(/\bFig\./g,"Fig\u2024").replace(/\bRef\./g,"Ref\u2024").replace(/\bNo\./g,"No\u2024").replace(/\bVol\./g,"Vol\u2024").replace(/\bpp\./g,"pp\u2024");
   var rawSentences=safeBody.split(/(?<=[\.\)])\s+(?=[A-Z\[("])/);
-
   var sentences=[];
-  rawSentences.forEach(function(raw){
-    var s=raw.replace(/\u2024/g,".");
-    if(!s.trim()||s.length<15)return;
-    var rN=findCitations(s,refs,hasNum,hasAuth);
-    if(rN.length){
-      var display=s.replace(/\s*\[[^\]]*\]/g,"")
-        .replace(/\s*\([\d,\s\-–]+\)/g,"")  // strip (1), (3-5), (8, 17-19)
-        .replace(/\s*\([A-Z][a-zäöåéè]+(?:\s+(?:et\s+al\.?|&\s+[A-Z][a-zäöåéè]+))?[\s,]+(?:19|20)\d{2}[a-z]?\)/g,"")
-        .replace(/\s*\((?:[^)]*?;\s*)*[A-Z][a-zäöåéè]+[^)]*(?:19|20)\d{2}[a-z]?\)/g,"")
-        .trim();
-      sentences.push({text:display,fullText:s,refNums:rN});
-    }
-  });
+  rawSentences.forEach(function(raw){var s=raw.replace(/\u2024/g,".");if(!s.trim()||s.length<15)return;var rN=findCitations(s,refs,hasNum,hasAuth);
+    if(rN.length){var display=s.replace(/\s*\[[^\]]*\]/g,"").replace(/\s*\([\d,\s\-–]+\)/g,"").replace(/\s*\([A-Z][a-zäöåéè]+(?:\s+(?:et\s+al\.?|&\s+[A-Z][a-zäöåéè]+))?[\s,]+(?:19|20)\d{2}[a-z]?\)/g,"").replace(/\s*\((?:[^)]*?;\s*)*[A-Z][a-zäöåéè]+[^)]*(?:19|20)\d{2}[a-z]?\)/g,"").trim();
+      sentences.push({text:display,fullText:s,refNums:rN});}});
   return{sentences:sentences,refs:refs,format:detectedFormat+(hasNum?" + numbered":"")+(hasAuth?" + author-year":"")};
 }
 
@@ -428,45 +440,31 @@ function nm(s){return(s||"").toLowerCase().replace(/[^a-z0-9\s]/g,"").replace(/\
 function sm(a,b){var na=nm(a),nb=nm(b);if(!na||!nb)return 0;var wa=na.split(" "),ws={};nb.split(" ").forEach(function(w){ws[w]=1;});var c=0,se={};wa.forEach(function(w){if(ws[w]&&!se[w]){c++;se[w]=1;}});return c/Math.max(wa.length,nb.split(" ").length);}
 
 async function vfy(num,txt){
-  var f=xf(txt),q=f.doi||f.ti||f.raw.substring(0,150);
-  if(!q||q.length<5)q=f.raw.substring(0,200);
+  var f=xf(txt),q=f.doi||f.ti||f.raw.substring(0,150);if(!q||q.length<5)q=f.raw.substring(0,200);
   var results=await Promise.allSettled([
     fetch("https://api.crossref.org/works?query="+encodeURIComponent(q.substring(0,250))+"&rows=3&mailto=r@e.com").then(function(r){return r.ok?r.json():null;}),
     (function(){var p=[];if(f.ti&&f.ti.length>5)p.push(f.ti.substring(0,100));else p.push(f.raw.substring(0,80));if(f.fa&&f.fa.length>2)p.push(f.fa+"[Author]");if(f.yr)p.push(f.yr+"[Date - Publication]");return fetch("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=3&term="+encodeURIComponent(p.join(" AND "))).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;});})(),
     (f.ti&&f.ti.length>=8)||(f.raw.length>=20)?fetch("https://api.openalex.org/works?search="+encodeURIComponent((f.ti||f.raw).substring(0,200))+"&per_page=3&mailto=r@e.com").then(function(r){return r.ok?r.json():null;}).catch(function(){return null;}):Promise.resolve(null)
   ]);
-  var crR=results[0].status==="fulfilled"?results[0].value:null;
-  var pmR=results[1].status==="fulfilled"?results[1].value:null;
-  var oaR=results[2].status==="fulfilled"?results[2].value:null;
-
-  if(f.doi&&!crR){
-    try{var dr=await fetch("https://api.crossref.org/works/"+encodeURIComponent(f.doi));
-    if(dr.ok){var dd=await dr.json();if(dd&&dd.message)crR={message:{items:[dd.message]}};}}catch(e){}
-  }
-
+  var crR=results[0].status==="fulfilled"?results[0].value:null,pmR=results[1].status==="fulfilled"?results[1].value:null,oaR=results[2].status==="fulfilled"?results[2].value:null;
+  if(f.doi&&!crR){try{var dr=await fetch("https://api.crossref.org/works/"+encodeURIComponent(f.doi));if(dr.ok){var dd=await dr.json();if(dd&&dd.message)crR={message:{items:[dd.message]}};}}catch(e){}}
   var bCR=null;((crR&&crR.message&&crR.message.items)||[]).forEach(function(it){
     var t2=(it.title&&it.title[0])||"",j=(it["container-title"]&&it["container-title"][0])||"",pp=it["published-print"],po=it["published-online"],y=(pp&&pp["date-parts"]&&pp["date-parts"][0]?String(pp["date-parts"][0][0]):"")|| (po&&po["date-parts"]&&po["date-parts"][0]?String(po["date-parts"][0][0]):""),a=(it.author||[]).map(function(x){return x.family||"";}).join(", ");
     var fullAuthors=(it.author||[]).map(function(x){return(x.family||"")+(x.given?" "+x.given:"");});
-    if(f.doi&&it.DOI&&f.doi.toLowerCase()===it.DOI.toLowerCase()){
-      if(!bCR||.95>bCR.score)bCR={score:.95,issues:[],doi:it.DOI,title:t2,journal:j,year:y,authors:a,fullAuthors:fullAuthors,abs:it.abstract?it.abstract.replace(/<[^>]+>/g,""):null};
-      return;
-    }
+    if(f.doi&&it.DOI&&f.doi.toLowerCase()===it.DOI.toLowerCase()){if(!bCR||.95>bCR.score)bCR={score:.95,issues:[],doi:it.DOI,title:t2,journal:j,year:y,authors:a,fullAuthors:fullAuthors,abs:it.abstract?it.abstract.replace(/<[^>]+>/g,""):null};return;}
     var ts=sm(f.ti,t2);if(ts<.2)return;var s=ts,iss=[];
     if(f.yr&&y&&f.yr!==y){iss.push("Year: "+f.yr+" → "+y);s-=.05;}else if(f.yr&&y)s+=.2;
     if(f.fa&&a&&a.toLowerCase().indexOf(f.fa.toLowerCase().substring(0,4))<0){iss.push("First author mismatch: '"+f.fa+"' not in '"+a.substring(0,50)+"'");s-=.05;}else if(f.fa&&a)s+=.2;
     if(f.jo){var js=sm(f.jo,j);if(js<.15&&j)iss.push("Journal: '"+f.jo+"' → '"+j+"'");else s+=js*.2;}
     if(!bCR||s>bCR.score)bCR={score:s,issues:iss,doi:it.DOI,title:t2,journal:j,year:y,authors:a,fullAuthors:fullAuthors,abs:it.abstract?it.abstract.replace(/<[^>]+>/g,""):null};
   });
-
   var bPM=null,pmIds=(pmR&&pmR.esearchresult&&pmR.esearchresult.idlist)||[];
   if(pmIds.length){try{var sr=await fetch("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&id="+pmIds.join(","));if(sr.ok){var sd=await sr.json();pmIds.forEach(function(id){var it=sd&&sd.result&&sd.result[id];if(!it)return;var t2=it.title||"",j=it.fulljournalname||it.source||"",y=(it.pubdate||"").substring(0,4),a=(it.authors||[]).map(function(x){return x.name;}).join(", ");var ts=sm(f.ti,t2);if(ts<.2)return;var s=ts,iss=[];if(f.yr&&y&&f.yr!==y)iss.push("Year: "+f.yr+" → "+y);else if(f.yr&&y)s+=.2;if(f.fa&&a&&a.toLowerCase().indexOf(f.fa.toLowerCase().substring(0,4))<0)iss.push("Author mismatch");else if(f.fa)s+=.2;if(!bPM||s>bPM.score)bPM={score:s,issues:iss,pmid:it.uid,title:t2,journal:j,year:y,authors:a};});}}catch(e){}}
-
   var bOA=null;((oaR&&oaR.results)||[]).forEach(function(it){
     var t2=it.title||"",j=(it.primary_location&&it.primary_location.source&&it.primary_location.source.display_name)||"",y=String(it.publication_year||""),a=(it.authorships||[]).map(function(x){return(x.author&&x.author.display_name)||"";}).join(", ");
     var ts=sm(f.ti,t2);if(ts<.2)return;var s=ts,iss=[];if(f.yr&&y&&f.yr!==y)iss.push("Year: "+f.yr+" → "+y);else if(f.yr&&y)s+=.2;if(f.fa&&a&&a.toLowerCase().indexOf(f.fa.toLowerCase().substring(0,4))<0)iss.push("Author not in OpenAlex");else if(f.fa)s+=.15;
     if(!bOA||s>bOA.score)bOA={score:s,issues:iss,doi:it.doi?it.doi.replace("https://doi.org/",""):null,title:t2,journal:j,year:y,authors:a,oaId:it.id,absIdx:it.abstract_inverted_index};
   });
-
   var cands=[bCR,bPM,bOA].filter(Boolean).sort(function(a,b){return b.score-a.score;}),best=cands[0];
   var lk={};if(bCR&&bCR.doi)lk.doi="https://doi.org/"+bCR.doi;if(bPM&&bPM.pmid)lk.pubmed="https://pubmed.ncbi.nlm.nih.gov/"+bPM.pmid+"/";if(bOA&&bOA.oaId)lk.openalex=bOA.oaId;if(!lk.doi&&bOA&&bOA.doi)lk.doi="https://doi.org/"+bOA.doi;if(!lk.doi&&f.doi)lk.doi="https://doi.org/"+f.doi;
   var fd=best?{title:best.title,journal:best.journal,year:best.year,authors:(best.authors||"").substring(0,120),fullAuthors:best.fullAuthors||[]}:null;
@@ -482,32 +480,19 @@ async function vfy(num,txt){
    ABSTRACT FETCH
    ═══════════════════════════════════════════ */
 async function fetchAbs(num){
-  if(AC[num]&&AC[num]!=="loading")return;
-  AC[num]="loading";patchAbs(num);
+  if(AC[num]&&AC[num]!=="loading")return;AC[num]="loading";patchAbs(num);
   try{
-    var v=V[num];
-    if(!v||v.st==="pending"){V[num]={st:"checking"};V[num]=await vfy(num,R[num]);v=V[num];draw();}
+    var v=V[num];if(!v||v.st==="pending"){V[num]={st:"checking"};V[num]=await vfy(num,R[num]);v=V[num];draw();}
     var res=null;
-    if(!res&&v.ad&&v.ad.crAbs&&v.ad.crAbs.length>30)
-      res={title:(v.fd&&v.fd.title)||"",authors:(v.fd&&v.fd.authors)||"",journal:(v.fd&&v.fd.journal)||"",abstract:v.ad.crAbs,src:"CrossRef",doi:v.ad.doi,pmid:v.ad.pmid};
-    if(!res&&v.ad&&v.ad.oaIdx){
-      try{var w={};Object.entries(v.ad.oaIdx).forEach(function(e2){e2[1].forEach(function(p){w[p]=e2[0];});});
-      var at=Object.keys(w).sort(function(a,b){return a-b;}).map(function(k2){return w[k2];}).join(" ");
-      if(at.length>40)res={title:(v.fd&&v.fd.title)||"",authors:(v.fd&&v.fd.authors)||"",journal:(v.fd&&v.fd.journal)||"",abstract:at,src:"OpenAlex",doi:v.ad.doi,pmid:v.ad.pmid};}catch(e){}
-    }
-    if(!res&&v.ad&&v.ad.pmid){
-      try{var r2=await fetch("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id="+v.ad.pmid+"&rettype=abstract&retmode=xml");
-      if(r2.ok){var xml=await r2.text(),dp=new DOMParser(),doc=dp.parseFromString(xml,"text/xml"),ab=doc.querySelector("AbstractText"),ti=doc.querySelector("ArticleTitle"),jo=doc.querySelector("Title"),yr=doc.querySelector("PubDate Year");
-      var au=Array.from(doc.querySelectorAll("Author")).map(function(a2){var l=a2.querySelector("LastName"),fn=a2.querySelector("ForeName");return((fn?fn.textContent:"")+" "+(l?l.textContent:"")).trim();}).filter(Boolean);
-      if(ab&&ab.textContent)res={title:ti?ti.textContent:"",authors:au.join(", "),journal:(jo?jo.textContent:"")+(yr?" ("+yr.textContent+")":""),abstract:ab.textContent,src:"PubMed",doi:v.ad.doi,pmid:v.ad.pmid};}}catch(e){}
-    }
+    if(!res&&v.ad&&v.ad.crAbs&&v.ad.crAbs.length>30)res={title:(v.fd&&v.fd.title)||"",authors:(v.fd&&v.fd.authors)||"",journal:(v.fd&&v.fd.journal)||"",abstract:v.ad.crAbs,src:"CrossRef",doi:v.ad.doi,pmid:v.ad.pmid};
+    if(!res&&v.ad&&v.ad.oaIdx){try{var w={};Object.entries(v.ad.oaIdx).forEach(function(e2){e2[1].forEach(function(p){w[p]=e2[0];});});var at=Object.keys(w).sort(function(a,b){return a-b;}).map(function(k2){return w[k2];}).join(" ");if(at.length>40)res={title:(v.fd&&v.fd.title)||"",authors:(v.fd&&v.fd.authors)||"",journal:(v.fd&&v.fd.journal)||"",abstract:at,src:"OpenAlex",doi:v.ad.doi,pmid:v.ad.pmid};}catch(e){}}
+    if(!res&&v.ad&&v.ad.pmid){try{var r2=await fetch("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id="+v.ad.pmid+"&rettype=abstract&retmode=xml");if(r2.ok){var xml=await r2.text(),dp=new DOMParser(),doc=dp.parseFromString(xml,"text/xml"),ab=doc.querySelector("AbstractText"),ti=doc.querySelector("ArticleTitle"),jo=doc.querySelector("Title"),yr=doc.querySelector("PubDate Year");var au=Array.from(doc.querySelectorAll("Author")).map(function(a2){var l=a2.querySelector("LastName"),fn=a2.querySelector("ForeName");return((fn?fn.textContent:"")+" "+(l?l.textContent:"")).trim();}).filter(Boolean);if(ab&&ab.textContent)res={title:ti?ti.textContent:"",authors:au.join(", "),journal:(jo?jo.textContent:"")+(yr?" ("+yr.textContent+")":""),abstract:ab.textContent,src:"PubMed",doi:v.ad.doi,pmid:v.ad.pmid};}}catch(e){}}
     if(!res)res={title:(v.fd&&v.fd.title)||"",authors:(v.fd&&v.fd.authors)||"",journal:(v.fd&&v.fd.journal)||"",abstract:"Abstract not available from any source.",src:"—",doi:v.ad?v.ad.doi:null,pmid:v.ad?v.ad.pmid:null};
     AC[num]=res;
   }catch(err){AC[num]={title:"",authors:"",journal:"",abstract:"Error: "+err.message,src:"—",doi:null,pmid:null};}
   patchAbs(num);
 }
 function patchAbs(num){document.querySelectorAll('.absslot[data-ref="'+num+'"]').forEach(function(el){el.innerHTML=renderAbsHTML(num);});}
-
 function renderAbsHTML(num){
   var a=AC[num];
   if(!a||a==="loading")return'<div class="abc"><div class="aload"><div class="sp"></div>Fetching abstract for ['+num+'] ...</div></div>';
@@ -519,86 +504,28 @@ function renderAbsHTML(num){
 }
 
 /* ═══════════════════════════════════════════
-   BUILD CORRECTED REFERENCE TEXT
+   BUILD CORRECTED REFERENCE + FIX FUNCTIONS
    ═══════════════════════════════════════════ */
 function buildCorrectedRef(num,v){
-  if(!v||!v.fd||!v.fd.title)return null;
-  var fd=v.fd;
+  if(!v||!v.fd||!v.fd.title)return null;var fd=v.fd;
   var isNumbered=detectedFormat.indexOf("Numbered")>-1||detectedFormat.indexOf("Vancouver")>-1;
   var isAPA=detectedFormat.indexOf("APA")>-1;
-
-  // Build a clean reference string from verified data
-  var authors=fd.authors||"";
-  var title=fd.title||"";
-  var journal=fd.journal||"";
-  var year=fd.year||"";
-  var doi=v.lk&&v.lk.doi?v.lk.doi.replace("https://doi.org/",""):"";
-
-  if(isAPA){
-    // APA format: Author, A. B. (Year). Title. Journal.
-    return authors+(year?" ("+year+"). ":". ")+title+"."+(journal?" "+journal+".":"")+(doi?" https://doi.org/"+doi:"");
-  }else if(isNumbered){
-    // Vancouver: Author AB. Title. Journal. Year;
-    return authors+". "+title+"."+(journal?" "+journal+".":"")+(year?" "+year+".":"")+(doi?" doi:"+doi:"");
-  }else{
-    // Generic
-    return authors+(year?" ("+year+"). ":". ")+title+"."+(journal?" "+journal+".":"")+(doi?" doi:"+doi:"");
-  }
+  var authors=fd.authors||"",title=fd.title||"",journal=fd.journal||"",year=fd.year||"",doi=v.lk&&v.lk.doi?v.lk.doi.replace("https://doi.org/",""):"";
+  if(isAPA)return authors+(year?" ("+year+"). ":". ")+title+"."+(journal?" "+journal+".":"")+(doi?" https://doi.org/"+doi:"");
+  else if(isNumbered)return authors+". "+title+"."+(journal?" "+journal+".":"")+(year?" "+year+".":"")+(doi?" doi:"+doi:"");
+  else return authors+(year?" ("+year+"). ":". ")+title+"."+(journal?" "+journal+".":"")+(doi?" doi:"+doi:"");
 }
-
-/* ═══════════════════════════════════════════
-   FIX FUNCTIONS
-   ═══════════════════════════════════════════ */
-function showFixPanel(num){
-  var v=V[num];
-  if(!v||!v.fd||!v.fd.title){showToast("No verified data available to fix this reference");return;}
-  var corrected=buildCorrectedRef(num,v);
-  if(!corrected){showToast("Cannot build corrected reference");return;}
-  FIXES[num]={oldText:R[num],newText:corrected,applied:false};
-  draw();
-}
+function showFixPanel(num){var v=V[num];if(!v||!v.fd||!v.fd.title){showToast("No verified data available to fix this reference");return;}var corrected=buildCorrectedRef(num,v);if(!corrected){showToast("Cannot build corrected reference");return;}FIXES[num]={oldText:R[num],newText:corrected,applied:false};draw();}
 window.showFixPanel=showFixPanel;
-
-function applyFix(num){
-  if(!FIXES[num])return;
-  R[num]=FIXES[num].newText;
-  FIXES[num].applied=true;
-  // Re-verify with new text
-  V[num]={st:"ok",msg:"Fixed — reference corrected",iss:[],lk:V[num].lk,fd:V[num].fd,ad:V[num].ad};
-  showToast("Reference ["+num+"] fixed!");
-  draw();
-  updateDlBtn();
-}
+function applyFix(num){if(!FIXES[num])return;R[num]=FIXES[num].newText;FIXES[num].applied=true;V[num]={st:"ok",msg:"Fixed — reference corrected",iss:[],lk:V[num].lk,fd:V[num].fd,ad:V[num].ad};showToast("Reference ["+num+"] fixed!");draw();updateDlBtn();}
 window.applyFix=applyFix;
-
-function dismissFix(num){
-  delete FIXES[num];
-  draw();
-}
+function dismissFix(num){delete FIXES[num];draw();}
 window.dismissFix=dismissFix;
-
-function editSentence(idx){
-  BODY_EDITS["editing_"+idx]=true;
-  draw();
-}
+function editSentence(idx){BODY_EDITS["editing_"+idx]=true;draw();}
 window.editSentence=editSentence;
-
-function saveSentence(idx){
-  var el=document.getElementById("sent-edit-"+idx);
-  if(el){
-    S[idx].text=el.value;
-    BODY_EDITS[idx]=el.value;
-  }
-  delete BODY_EDITS["editing_"+idx];
-  showToast("Sentence text updated");
-  draw();
-}
+function saveSentence(idx){var el=document.getElementById("sent-edit-"+idx);if(el){S[idx].text=el.value;BODY_EDITS[idx]=el.value;}delete BODY_EDITS["editing_"+idx];showToast("Sentence text updated");draw();}
 window.saveSentence=saveSentence;
-
-function cancelEditSentence(idx){
-  delete BODY_EDITS["editing_"+idx];
-  draw();
-}
+function cancelEditSentence(idx){delete BODY_EDITS["editing_"+idx];draw();}
 window.cancelEditSentence=cancelEditSentence;
 
 /* ═══════════════════════════════════════════
@@ -606,91 +533,71 @@ window.cancelEditSentence=cancelEditSentence;
    ═══════════════════════════════════════════ */
 function tgl(key,refs){EX[key]=!EX[key];draw();if(EX[key])refs.forEach(function(n){if(!AC[n])setTimeout(function(){fetchAbs(n);},0);});}
 window.tgl=tgl;
-
 function esc(s){var d=document.createElement("div");d.textContent=s||"";return d.innerHTML;}
-// Safe array serializer for use inside onclick="" attributes (avoids double-quote conflict)
 function jsa(arr){return "["+arr.map(function(x){return"'"+x+"'";}).join(",")+"]";}
-function mkBadge(st){
-  var m={pending:"Pending",checking:"Checking",ok:"Verified",warning:"Warning",error:"Not found",fixed:"Fixed"};
-  var c={pending:"bp",checking:"bc",ok:"bo",warning:"bw",error:"be",fixed:"bf"};
-  return'<span class="badge '+(c[st]||"bp")+'"><span class="bdot"></span>'+(m[st]||st)+'</span>';
-}
+function mkBadge(st){var m={pending:"Pending",checking:"Checking",ok:"Verified",warning:"Warning",error:"Not found",fixed:"Fixed"};var c={pending:"bp",checking:"bc",ok:"bo",warning:"bw",error:"be",fixed:"bf"};return'<span class="badge '+(c[st]||"bp")+'"><span class="bdot"></span>'+(m[st]||st)+'</span>';}
 function mkLinks(lk){if(!lk)return"";var h="";if(lk.doi)h+='<a href="'+lk.doi+'" target="_blank" class="al ald" onclick="event.stopPropagation()">DOI</a>';if(lk.pubmed)h+='<a href="'+lk.pubmed+'" target="_blank" class="al alp" onclick="event.stopPropagation()">PubMed</a>';if(lk.openalex)h+='<a href="'+lk.openalex+'" target="_blank" class="al alo" onclick="event.stopPropagation()">OpenAlex</a>';return h?'<div class="abl" style="margin-top:4px">'+h+'</div>':"";}
-function ccls(rn){
-  for(var i=0;i<rn.length;i++){if(FIXES[rn[i]]&&FIXES[rn[i]].applied)return" fx";}
-  for(var i2=0;i2<rn.length;i2++){if((V[rn[i2]]||{}).st==="error")return" er";}
-  for(var j=0;j<rn.length;j++){if((V[rn[j]]||{}).st==="warning")return" wn";}
-  var ok=true;for(var k=0;k<rn.length;k++){if((V[rn[k]]||{}).st!=="ok")ok=false;}
-  return ok&&rn.length?" ok":"";
+function ccls(rn){for(var i=0;i<rn.length;i++){if(FIXES[rn[i]]&&FIXES[rn[i]].applied)return" fx";}for(var i2=0;i2<rn.length;i2++){if((V[rn[i2]]||{}).st==="error")return" er";}for(var j=0;j<rn.length;j++){if((V[rn[j]]||{}).st==="warning")return" wn";}var ok=true;for(var k=0;k<rn.length;k++){if((V[rn[k]]||{}).st!=="ok")ok=false;}return ok&&rn.length?" ok":"";}
+function absSlots(refs,sentIdx){
+  var h='<div class="abw">';
+  refs.forEach(function(n){
+    h+='<div class="absslot" data-ref="'+n+'">'+renderAbsHTML(n)+'</div>';
+    // Show claim support analysis if available
+    if(sentIdx!==undefined){
+      var key=sentIdx+"_"+n;
+      if(CLAIMS[key]){h+=renderClaimHTML(sentIdx,n);}
+    }
+  });
+  return h+'</div>';
 }
-function absSlots(refs){var h='<div class="abw">';refs.forEach(function(n){h+='<div class="absslot" data-ref="'+n+'">'+renderAbsHTML(n)+'</div>';});return h+'</div>';}
-
-function renderFixPanel(num){
-  var fx=FIXES[num];
-  if(!fx||fx.applied)return"";
-  return'<div class="fix-panel" onclick="event.stopPropagation()">'+
-    '<h4>Suggested correction for ['+num+']</h4>'+
-    '<div class="fix-row"><span class="fix-label">Current:</span><span class="fix-old">'+esc(fx.oldText)+'</span></div>'+
-    '<div class="fix-row"><span class="fix-label">Corrected:</span><span class="fix-new">'+esc(fx.newText)+'</span></div>'+
-    '<div class="fix-actions"><button class="fix-apply" onclick="applyFix(\''+num+'\')">Apply fix</button><button class="fix-dismiss" onclick="dismissFix(\''+num+'\')">Dismiss</button></div></div>';
-}
+function renderFixPanel(num){var fx=FIXES[num];if(!fx||fx.applied)return"";return'<div class="fix-panel" onclick="event.stopPropagation()"><h4>Suggested correction for ['+num+']</h4><div class="fix-row"><span class="fix-label">Current:</span><span class="fix-old">'+esc(fx.oldText)+'</span></div><div class="fix-row"><span class="fix-label">Corrected:</span><span class="fix-new">'+esc(fx.newText)+'</span></div><div class="fix-actions"><button class="fix-apply" onclick="applyFix(\''+num+'\')">Apply fix</button><button class="fix-dismiss" onclick="dismissFix(\''+num+'\')">Dismiss</button></div></div>';}
 
 function drawS(){
   if(!S.length)return'<div class="mt"><p>No cited sentences found</p><p class="su">Check the References tab</p></div>';
   var o="";
   for(var i=0;i<S.length;i++){
-    var s=S[i],key="s"+i,open=EX[key];
-    var isEditing=BODY_EDITS["editing_"+i];
+    var s=S[i],key="s"+i,open=EX[key],isEditing=BODY_EDITS["editing_"+i];
     o+='<div class="cd'+ccls(s.refNums)+'">';
-
-    // Sentence text (editable or static)
     if(isEditing){
       o+='<textarea class="text-edit-area" id="sent-edit-'+i+'" onclick="event.stopPropagation()">'+esc(s.text)+'</textarea>';
       o+='<div class="act-row"><button class="act-btn done" onclick="event.stopPropagation();saveSentence('+i+')">Save</button><button class="act-btn" onclick="event.stopPropagation();cancelEditSentence('+i+')">Cancel</button></div>';
     }else{
       o+='<div class="cd-b" onclick="tgl(\''+key+'\','+jsa(s.refNums)+')">'+esc(s.text)+'</div>';
     }
-
-    // Reference chips
     o+='<div class="chips">';
-    s.refNums.forEach(function(n){
-      var st=(V[n]||{}).st||"";
-      var fxd=FIXES[n]&&FIXES[n].applied;
-      o+='<span class="ch'+(fxd?" fx":st==="ok"?" ok":st==="warning"?" wn":st==="error"?" er":"")+'">['+n+'] '+esc((R[n]||"").split(/[.(]/)[0].substring(0,22))+'</span>';
-    });
+    s.refNums.forEach(function(n){var st=(V[n]||{}).st||"",fxd=FIXES[n]&&FIXES[n].applied;o+='<span class="ch'+(fxd?" fx":st==="ok"?" ok":st==="warning"?" wn":st==="error"?" er":"")+'">['+n+'] '+esc((R[n]||"").split(/[.(]/)[0].substring(0,22))+'</span>';});
     o+='</div>';
 
-    // Action buttons
+    // Inline claim results summary (if any checked)
+    var claimResults=[];
+    s.refNums.forEach(function(n){var ck=CLAIMS[i+"_"+n];if(ck&&ck!=="loading")claimResults.push({num:n,claim:ck});});
+    if(claimResults.length){
+      o+='<div style="margin-top:6px">';
+      claimResults.forEach(function(cr){
+        var icon=cr.claim.verdict==="supports"?"✓":cr.claim.verdict==="partial"?"◐":"✗";
+        var color=cr.claim.verdict==="supports"?"var(--green)":cr.claim.verdict==="partial"?"var(--amber)":"var(--red)";
+        o+='<span style="font-size:10px;color:'+color+';font-weight:600;margin-right:8px">'+icon+' ['+cr.num+'] '+cr.claim.score+'%</span>';
+      });
+      o+='</div>';
+    }
+
     o+='<div class="act-row">';
-    s.refNums.forEach(function(n){
-      var v=V[n]||{};
-      if(v.st==="warning"||v.st==="error"){
-        if(!FIXES[n]||!FIXES[n].applied){
-          o+='<button class="act-btn fix" onclick="event.stopPropagation();showFixPanel(\''+n+'\')" title="Fix reference ['+n+']">Fix ['+n+']</button>';
-        }
-      }
-    });
+    s.refNums.forEach(function(n){var v=V[n]||{};if((v.st==="warning"||v.st==="error")&&(!FIXES[n]||!FIXES[n].applied)){o+='<button class="act-btn fix" onclick="event.stopPropagation();showFixPanel(\''+n+'\')" title="Fix reference ['+n+']">Fix ['+n+']</button>';}});
     o+='<button class="act-btn abs" onclick="event.stopPropagation();tgl(\''+key+'\','+jsa(s.refNums)+')">'+(!open?'Show abstracts':'Hide abstracts')+'</button>';
+    o+='<button class="act-btn claim" onclick="event.stopPropagation();doClaimCheckAll('+i+')">Check claim support</button>';
     if(!isEditing)o+='<button class="act-btn edit" onclick="event.stopPropagation();editSentence('+i+')">Edit text</button>';
     o+='</div>';
-
-    // Fix panels for each ref
     s.refNums.forEach(function(n){o+=renderFixPanel(n);});
-
-    // Abstracts
-    if(open)o+=absSlots(s.refNums);
-
+    if(open)o+=absSlots(s.refNums,i);
     o+='</div>';
   }
   return o;
 }
 
 function drawR(){
-  var ks=Object.keys(R);if(!ks.length)return'<div class="mt"><p>No references parsed</p></div>';
-  var o="";
+  var ks=Object.keys(R);if(!ks.length)return'<div class="mt"><p>No references parsed</p></div>';var o="";
   ks.forEach(function(k){
-    var v=V[k]||{st:"pending"},key="r"+k,open=EX[key];
-    var fxd=FIXES[k]&&FIXES[k].applied;
+    var v=V[k]||{st:"pending"},key="r"+k,open=EX[key],fxd=FIXES[k]&&FIXES[k].applied;
     o+='<div class="rc'+(fxd?" fx":v.st==="ok"?" ok":v.st==="warning"?" wn":v.st==="error"?" er":"")+'">';
     o+='<div class="rct"><div style="flex:1"><span class="rnm">['+k+']</span> <span class="rtx">'+esc(R[k])+'</span>'+mkLinks(v.lk)+'</div>';
     o+='<div style="display:flex;gap:4px;align-items:center">';
@@ -699,62 +606,32 @@ function drawR(){
     if(v.msg&&v.st!=="pending")o+='<div class="rmg'+(v.st==="ok"?" ok":v.st==="warning"?" wn":" er")+'">'+(v.st==="ok"?"\u2713 ":v.st==="warning"?"— ":"\u2717 ")+esc(v.msg)+'</div>';
     if(v.iss&&v.iss.length){o+='<ul class="ris">';v.iss.forEach(function(d){o+="<li>"+esc(d)+"</li>";});o+="</ul>";}
     if(v.fd)o+='<div class="rfd"><strong>'+esc(v.fd.title||"")+'</strong> · '+esc(v.fd.authors||"")+' · <em>'+esc(v.fd.journal||"")+'</em> '+(v.fd.year?"("+esc(v.fd.year)+")":"")+'</div>';
-
-    // Action buttons
     o+='<div class="act-row">';
-    if((v.st==="warning"||v.st==="error")&&(!FIXES[k]||!FIXES[k].applied)){
-      o+='<button class="act-btn fix" onclick="event.stopPropagation();showFixPanel(\''+k+'\')">Fix reference</button>';
-    }
+    if((v.st==="warning"||v.st==="error")&&(!FIXES[k]||!FIXES[k].applied))o+='<button class="act-btn fix" onclick="event.stopPropagation();showFixPanel(\''+k+'\')">Fix reference</button>';
     o+='<button class="act-btn abs" onclick="event.stopPropagation();tgl(\''+key+'\','+jsa([k])+')">'+(!open?'Show abstract':'Hide abstract')+'</button>';
     o+='</div>';
-
-    o+=renderFixPanel(k);
-    if(open)o+=absSlots([k]);
-    o+='</div>';
+    o+=renderFixPanel(k);if(open)o+=absSlots([k]);o+='</div>';
   });
   return o;
 }
 
 function drawF(){
-  var ks=Object.keys(R).filter(function(k2){var s2=(V[k2]||{}).st;return s2==="error"||s2==="warning";});
-  var fixedKs=Object.keys(FIXES).filter(function(k2){return FIXES[k2].applied;});
+  var ks=Object.keys(R).filter(function(k2){var s2=(V[k2]||{}).st;return s2==="error"||s2==="warning";}),fixedKs=Object.keys(FIXES).filter(function(k2){return FIXES[k2].applied;});
   var okN=Object.keys(R).filter(function(k2){return(V[k2]||{}).st==="ok";}).length;
   if(!ks.length&&!fixedKs.length)return'<div class="mt">'+(okN>0?"<p>All references verified — no issues found</p>":"<p>Click Verify all first</p>")+'</div>';
   var o="";
-
-  // Show fixed items first
-  if(fixedKs.length){
-    o+='<div style="margin-bottom:12px;font-size:11px;color:var(--green);font-weight:700">'+fixedKs.length+' reference(s) fixed</div>';
-    fixedKs.forEach(function(k){
-      var key="ff"+k,open=EX[key];
-      o+='<div class="rc fx">';
-      o+='<div class="rct"><div><span class="rnm">['+k+']</span> <span class="rtx">'+esc(R[k])+'</span></div>'+mkBadge("fixed")+'</div>';
-      o+='<div class="act-row"><button class="act-btn abs" onclick="event.stopPropagation();tgl(\''+key+'\','+jsa([k])+')">'+(!open?'Show abstract':'Hide abstract')+'</button></div>';
-      if(open)o+=absSlots([k]);
-      o+='</div>';
-    });
-  }
-
-  // Remaining issues
-  ks.forEach(function(k){
-    if(FIXES[k]&&FIXES[k].applied)return; // skip fixed ones
-    var v=V[k],ci=S.filter(function(s2){return s2.refNums.indexOf(k)>-1;}),key="f"+k,open=EX[key];
+  if(fixedKs.length){o+='<div style="margin-bottom:12px;font-size:11px;color:var(--green);font-weight:700">'+fixedKs.length+' reference(s) fixed</div>';
+    fixedKs.forEach(function(k){var key="ff"+k,open=EX[key];o+='<div class="rc fx"><div class="rct"><div><span class="rnm">['+k+']</span> <span class="rtx">'+esc(R[k])+'</span></div>'+mkBadge("fixed")+'</div><div class="act-row"><button class="act-btn abs" onclick="event.stopPropagation();tgl(\''+key+'\','+jsa([k])+')">'+(!open?'Show abstract':'Hide abstract')+'</button></div>';if(open)o+=absSlots([k]);o+='</div>';});}
+  ks.forEach(function(k){if(FIXES[k]&&FIXES[k].applied)return;var v=V[k],ci=S.filter(function(s2){return s2.refNums.indexOf(k)>-1;}),key="f"+k,open=EX[key];
     o+='<div class="fc'+(v.st==="error"?" er":" wn")+'">';
     o+='<div class="rct"><div><span class="rnm">['+k+']</span> <span class="rtx">'+esc(R[k])+'</span>'+mkLinks(v.lk)+'</div>'+mkBadge(v.st)+'</div>';
     o+='<div class="rmg'+(v.st==="error"?" er":" wn")+'" style="font-weight:600">'+(v.st==="error"?"\u2717 ":"— ")+esc(v.msg)+'</div>';
     if(v.iss&&v.iss.length){o+='<ul class="ris">';v.iss.forEach(function(d){o+="<li>"+esc(d)+"</li>";});o+="</ul>";}
     if(v.fd)o+='<div class="rfd"><strong>'+esc(v.fd.title||"")+'</strong> · '+esc(v.fd.authors||"")+' · <em>'+esc(v.fd.journal||"")+'</em> '+(v.fd.year?"("+esc(v.fd.year)+")":"")+'</div>';
     if(ci.length){o+='<div class="ca"><div class="cl">Cited in '+ci.length+' sentence(s)</div>';ci.forEach(function(s2){o+='<div class="cs">'+esc(s2.text.substring(0,130))+(s2.text.length>130?"…":"")+'</div>';});o+='</div>';}
-
-    // Action buttons
-    o+='<div class="act-row">';
-    if(!FIXES[k]||!FIXES[k].applied)o+='<button class="act-btn fix" onclick="event.stopPropagation();showFixPanel(\''+k+'\')">Fix reference</button>';
-    o+='<button class="act-btn abs" onclick="event.stopPropagation();tgl(\''+key+'\','+jsa([k])+')">'+(!open?'Show abstract':'Hide abstract')+'</button>';
-    o+='</div>';
-
-    o+=renderFixPanel(k);
-    if(open)o+=absSlots([k]);
-    o+='</div>';
+    o+='<div class="act-row">';if(!FIXES[k]||!FIXES[k].applied)o+='<button class="act-btn fix" onclick="event.stopPropagation();showFixPanel(\''+k+'\')">Fix reference</button>';
+    o+='<button class="act-btn abs" onclick="event.stopPropagation();tgl(\''+key+'\','+jsa([k])+')">'+(!open?'Show abstract':'Hide abstract')+'</button></div>';
+    o+=renderFixPanel(k);if(open)o+=absSlots([k]);o+='</div>';
   });
   return o;
 }
@@ -768,107 +645,36 @@ function draw(){
   document.getElementById("tS").textContent="Sentences ("+S.length+")";
   document.getElementById("tR").textContent="References ("+ks.length+")";
   document.getElementById("tF").textContent="Flagged ("+(fl+fx)+")";
-
-  // Fix summary bar
   var fixSm=document.getElementById("fixSummary");
-  if(fx>0){
-    fixSm.style.display="flex";
-    fixSm.className="fix-summary";
-    fixSm.innerHTML='<div><span class="count">'+fx+' reference(s) corrected</span><br><span class="detail">Your edits will be included in the downloaded .docx</span></div>';
-  }else{fixSm.style.display="none";}
+  if(fx>0){fixSm.style.display="flex";fixSm.className="fix-summary";fixSm.innerHTML='<div><span class="count">'+fx+' reference(s) corrected</span><br><span class="detail">Your edits will be included in the downloaded .docx</span></div>';}else{fixSm.style.display="none";}
 }
-
 async function c1(k){V[k]={st:"checking"};draw();V[k]=await vfy(k,R[k]);draw();}
 window.c1=c1;
 
 /* ═══════════════════════════════════════════
    DOWNLOAD CORRECTED DOCX
    ═══════════════════════════════════════════ */
-function updateDlBtn(){
-  var btn=document.getElementById("dlBtn");
-  if(Object.keys(R).length>0)btn.style.display="inline-flex";
-}
-
+function updateDlBtn(){var btn=document.getElementById("dlBtn");if(Object.keys(R).length>0)btn.style.display="inline-flex";}
 async function downloadDocx(){
-  var docxLib=window.docx;
-  if(!docxLib){showToast("docx library not loaded");return;}
-
-  // Reconstruct full text with fixes applied
-  var lines=ORIG_TEXT.split("\n");
+  var docxLib=window.docx;if(!docxLib){showToast("docx library not loaded — try refreshing the page");return;}
   var outputParagraphs=[];
-
-  // Body lines — apply sentence edits
-  var bodyText=ORIG_BODY_LINES.join("\n");
-  // For sentence edits, do text replacement in body
-  Object.keys(BODY_EDITS).forEach(function(key){
-    if(key.startsWith("editing_"))return;
-    var idx=parseInt(key);
-    if(!isNaN(idx)&&S[idx]){
-      // This is simplified — just include the edited sentences in output
-    }
-  });
-
-  // Add body paragraphs
   ORIG_BODY_LINES.forEach(function(line){
-    if(!line.trim()){
-      outputParagraphs.push(new docxLib.Paragraph({children:[]}));
-    }else{
-      outputParagraphs.push(new docxLib.Paragraph({
-        children:[new docxLib.TextRun({text:line})],
-        spacing:{after:120}
-      }));
-    }
+    if(!line.trim()){outputParagraphs.push(new docxLib.Paragraph({children:[]}));}
+    else{outputParagraphs.push(new docxLib.Paragraph({children:[new docxLib.TextRun({text:line})],spacing:{after:120}}));}
   });
-
-  // Add reference heading if there was one
-  if(REF_SECTION_INFO&&REF_SECTION_INFO.heading>-1){
-    var headingLine=ORIG_TEXT.split("\n")[REF_SECTION_INFO.heading];
-    outputParagraphs.push(new docxLib.Paragraph({
-      children:[new docxLib.TextRun({text:headingLine||"References",bold:true,size:28})],
-      spacing:{before:400,after:200},
-      heading:docxLib.HeadingLevel.HEADING_1
-    }));
-  }else{
-    outputParagraphs.push(new docxLib.Paragraph({
-      children:[new docxLib.TextRun({text:"References",bold:true,size:28})],
-      spacing:{before:400,after:200},
-      heading:docxLib.HeadingLevel.HEADING_1
-    }));
-  }
-
-  // Add references (with fixes applied)
+  if(REF_SECTION_INFO&&REF_SECTION_INFO.heading>-1){var headingLine=ORIG_TEXT.split("\n")[REF_SECTION_INFO.heading];outputParagraphs.push(new docxLib.Paragraph({children:[new docxLib.TextRun({text:headingLine||"References",bold:true,size:28})],spacing:{before:400,after:200},heading:docxLib.HeadingLevel.HEADING_1}));}
+  else{outputParagraphs.push(new docxLib.Paragraph({children:[new docxLib.TextRun({text:"References",bold:true,size:28})],spacing:{before:400,after:200},heading:docxLib.HeadingLevel.HEADING_1}));}
   var isNumbered=detectedFormat.indexOf("Numbered")>-1;
   Object.keys(R).sort(function(a,b){return parseInt(a)-parseInt(b);}).forEach(function(num){
-    var refText=R[num]; // Already contains fixed text if applyFix was called
-    var prefix=isNumbered?"["+num+"] ":"";
-    var wasFix=FIXES[num]&&FIXES[num].applied;
-
-    outputParagraphs.push(new docxLib.Paragraph({
-      children:[
-        new docxLib.TextRun({text:prefix+refText,size:22,color:wasFix?"1D4ED8":undefined}),
-        wasFix?new docxLib.TextRun({text:" [CORRECTED]",size:18,color:"1D4ED8",italics:true}):new docxLib.TextRun("")
-      ],
-      spacing:{after:100}
-    }));
+    var refText=R[num],prefix=isNumbered?num+". ":"",wasFix=FIXES[num]&&FIXES[num].applied;
+    outputParagraphs.push(new docxLib.Paragraph({children:[new docxLib.TextRun({text:prefix+refText,size:22,color:wasFix?"1D4ED8":undefined}),wasFix?new docxLib.TextRun({text:" [CORRECTED]",size:18,color:"1D4ED8",italics:true}):new docxLib.TextRun("")],spacing:{after:100}}));
   });
-
-  var doc=new docxLib.Document({
-    sections:[{properties:{},children:outputParagraphs}]
-  });
-
-  var blob=await docxLib.Packer.toBlob(doc);
-  saveAs(blob,"corrected_manuscript.docx");
-  showToast("Downloaded corrected_manuscript.docx");
+  var doc=new docxLib.Document({sections:[{properties:{},children:outputParagraphs}]});
+  var blob=await docxLib.Packer.toBlob(doc);saveAs(blob,"corrected_manuscript.docx");showToast("Downloaded corrected_manuscript.docx");
 }
 window.downloadDocx=downloadDocx;
 
-/* ═══════════════════════════════════════════
-   TOAST
-   ═══════════════════════════════════════════ */
-function showToast(msg){
-  var t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");
-  setTimeout(function(){t.classList.remove("show");},2500);
-}
+function showToast(msg){var t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(function(){t.classList.remove("show");},2500);}
 
 /* ═══════════════════════════════════════════
    EVENTS
@@ -878,38 +684,32 @@ document.getElementById("fIn").addEventListener("change",async function(ev){
   document.getElementById("uL").innerHTML='<i class="lucide-upload" style="font-size:15px"></i> Upload different file';
   document.getElementById("fI").textContent="Parsing…";
   try{var text;if(f.name.endsWith(".txt"))text=await f.text();else{var ab=await f.arrayBuffer();text=(await mammoth.extractRawText({arrayBuffer:ab})).value;}
-    var p=parse(text);S=p.sentences;R=p.refs;V={};EX={};AC={};FIXES={};BODY_EDITS={};
+    var p=parse(text);S=p.sentences;R=p.refs;V={};EX={};AC={};FIXES={};BODY_EDITS={};CLAIMS={};
     Object.keys(R).forEach(function(k2){V[k2]={st:"pending"};});
     document.getElementById("fI").textContent=f.name+" — "+S.length+" sentences, "+Object.keys(R).length+" references";
     var fi=document.getElementById("fmtInfo");fi.style.display="block";fi.textContent="Detected: "+p.format;
     document.getElementById("bar").style.display="flex";document.getElementById("tabs").style.display="flex";
-    updateDlBtn();
-    tab="s";document.querySelectorAll(".tab").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")==="s");});draw();
+    updateDlBtn();tab="s";document.querySelectorAll(".tab").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-t")==="s");});draw();
   }catch(err){document.getElementById("fI").textContent="Error: "+err.message;}
 });
-
 document.getElementById("goBtn").addEventListener("click",async function(){
   var ks=Object.keys(R);if(!ks.length)return;busy=true;stopF=false;
   var btn=document.getElementById("goBtn");btn.disabled=true;
   document.getElementById("stopBtn").style.display="inline-block";document.getElementById("pB").style.display="block";
   for(var i=0;i<ks.length;i+=3){
-    if(stopF)break;
-    var batch=ks.slice(i,Math.min(i+3,ks.length));
+    if(stopF)break;var batch=ks.slice(i,Math.min(i+3,ks.length));
     batch.forEach(function(k2){V[k2]={st:"checking"};});draw();
     btn.textContent=Math.min(i+3,ks.length)+"/"+ks.length;
     document.getElementById("pF").style.width=(Math.min(i+3,ks.length)/ks.length*100)+"%";
     var res=await Promise.all(batch.map(function(k2){return vfy(k2,R[k2]);}));
-    for(var j=0;j<batch.length;j++)V[batch[j]]=res[j];
-    draw();
+    for(var j=0;j<batch.length;j++)V[batch[j]]=res[j];draw();
   }
   busy=false;btn.disabled=false;btn.innerHTML='<i class="lucide-scan-search" style="font-size:13px"></i> Verify all';
   document.getElementById("stopBtn").style.display="none";document.getElementById("pB").style.display="none";
   updateDlBtn();draw();
   var flCount=Object.keys(R).filter(function(k2){var s2=(V[k2]||{}).st;return s2==="error"||s2==="warning";}).length;
-  if(flCount>0)showToast(flCount+" reference(s) need attention — click Fix to correct");
-  else showToast("All references verified!");
+  if(flCount>0)showToast(flCount+" reference(s) need attention — click Fix to correct");else showToast("All references verified!");
 });
-
 document.getElementById("stopBtn").addEventListener("click",function(){stopF=true;});
 document.getElementById("dlBtn").addEventListener("click",downloadDocx);
 document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){tab=this.getAttribute("data-t");document.querySelectorAll(".tab").forEach(function(x){x.classList.toggle("on",x===b);});draw();});});
